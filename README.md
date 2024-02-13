@@ -5,7 +5,6 @@
     <img src="screenshots/cover-invert.png" alt="" width="200"  height="auto" />
 </div>
 
----
 
 <!-- ! TABLE OF CONTENTS -->
 
@@ -30,7 +29,6 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
----
 
 <!-- ! PROJECT DESCRIPTION -->
 
@@ -96,7 +94,6 @@ This project relies on a backend service to fetch and handle data. To ensure the
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
 
 <!-- ! LIVE DEMO -->
 
@@ -106,7 +103,6 @@ This project relies on a backend service to fetch and handle data. To ensure the
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
 
 <!-- ! GETTING STARTED -->
 
@@ -169,7 +165,6 @@ You may also see any lint errors in the console.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
 
 <!-- ! AUTHORS -->
 
@@ -183,8 +178,6 @@ You may also see any lint errors in the console.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
-
 <!-- ! FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
@@ -193,7 +186,6 @@ You may also see any lint errors in the console.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
 
 <!-- ! CONTRIBUTING -->
 
@@ -205,7 +197,6 @@ Feel free to check the [issues page](https://github.com/fmanimashaun/book-car/is
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
 
 <!-- ! SUPPORT -->
 
@@ -215,7 +206,6 @@ Give a ⭐ if you liked this project!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
 
 <!-- ! ACKNOWLEDGEMENTS -->
 
@@ -227,7 +217,6 @@ Give a ⭐ if you liked this project!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
 
 <!-- ! LICENSE -->
 
@@ -236,5 +225,3 @@ Give a ⭐ if you liked this project!
 This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
----
