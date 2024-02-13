@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Logo from 'assets/imgs/transparent-logo.png';
 
 const SideNavBar = () => (
@@ -12,15 +12,30 @@ const SideNavBar = () => (
         </h1>
       </div>
       <nav className="w-full pl-8">
-        <ul>
-          <li className="bg-light-green px-4 py-2 font-bold text-white text-lg">
-            <Link to="/">HOME</Link>
+        <ul className="flex flex-col space-y-2">
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg' : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
+            >
+              Home
+            </NavLink>
           </li>
-          <li className="px-4 py-2 font-bold text-lg">
-            <Link to="/login">LOGIN</Link>
+          <li>
+            <NavLink
+              to="/login"
+              className={({ isActive }) => (isActive ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg' : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
+            >
+              Login
+            </NavLink>
           </li>
-          <li className="px-4 py-2 font-bold text-lg">
-            <Link to="/register">REGISTER</Link>
+          <li>
+            <NavLink
+              to="/register"
+              className={({ isActive }) => (isActive ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg' : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
+            >
+              Register
+            </NavLink>
           </li>
         </ul>
       </nav>
