@@ -2,13 +2,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { store } from 'app/store';
+import store from 'app/store';
 import { Provider } from 'react-redux';
-import Layout from 'components/Layout';
-import Login from 'components/Login';
-import Register from 'components/Register';
-import Missing from 'components/Missing';
-import Home from 'components/Home';
+import Layout from 'pages/Layout';
+import Login from 'pages/Login';
+import Register from 'pages/Register';
+import Missing from 'pages/Missing';
+import Home from 'pages/Home';
 import './index.css';
 
 const router = createBrowserRouter(
@@ -31,7 +31,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: '/book-a-car',
+    basename: '/book-car',
   },
 );
 
