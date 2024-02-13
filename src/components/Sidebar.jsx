@@ -60,6 +60,22 @@ const SideNavBar = () => (
           </li>
         </ul>
       </nav>
+      <div className="mt-auto">
+        <p className="text-center pb-4">
+          <Link to="/login" className="font-bold text-lg">
+            LOGIN
+          </Link>
+          <span className="text-lg"> / </span>
+          <Link to="/register" className="font-bold text-lg">
+            REGISTER
+          </Link>
+        </p>
+        <div>
+          <p className="text-center"><a href="localhost:4000/api-doc" className="text-dark-blue">API Documentation</a></p>
+          <p className="text-center text-dark-blue">&copy; 2024 BookCar</p>
+          <p className="text-center text-dark-blue">All rights reserved</p>
+        </div>
+      </div>
     </aside>
   </>
 );
