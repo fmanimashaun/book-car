@@ -14,6 +14,8 @@ import CarDetails from 'pages/CarDetails';
 import AddCar from 'pages/AddCar';
 import DeleteCars from 'pages/DeleteCars';
 import MyResevation from 'pages/MyResevation';
+import RequireAuth from 'components/RequireAuth';
+import Unauthorized from 'pages/Unauthorized';
 import 'assets/styles/index.css';
 
 const router = createBrowserRouter(
@@ -24,6 +26,7 @@ const router = createBrowserRouter(
       errorElement: <Missing />,
       children: [
         { path: '/', element: <Home /> },
+        { path: 'unathorised', element: <Unauthorized /> },
         {
           path: 'login',
           element: <Login />,
@@ -33,29 +36,37 @@ const router = createBrowserRouter(
           element: <Register />,
         },
         {
-          path: 'reservations',
-          element: <MyResevation />,
+          element: <RequireAuth />,
           children: [
             {
-              path: 'new',
+              path: 'reservations',
+              element: <MyResevation />,
+            },
+            {
+              path: 'reservations/new',
               element: <AddReserve />,
             },
           ],
         },
         {
-          path: '/cars',
+          path: 'cars',
           element: <Home />,
           children: [
             {
               path: ':id',
               element: <CarDetails />,
             },
+          ],
+        },
+        {
+          element: <RequireAuth allowedRoles={['admin']} />,
+          children: [
             {
-              path: 'new',
+              path: 'cars/new',
               element: <AddCar />,
             },
             {
-              path: 'delete',
+              path: 'cars/delete',
               element: <DeleteCars />,
             },
           ],
