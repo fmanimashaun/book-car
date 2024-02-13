@@ -9,6 +9,11 @@ import Login from 'pages/Login';
 import Register from 'pages/Register';
 import Missing from 'pages/Missing';
 import Home from 'pages/Home';
+import AddReserve from 'pages/AddReserve';
+import CarDetails from 'pages/CarDetails';
+import AddCar from 'pages/AddCar';
+import DeleteCars from 'pages/DeleteCars';
+import MyResevation from 'pages/MyResevation';
 import 'assets/styles/index.css';
 
 const router = createBrowserRouter(
@@ -26,6 +31,34 @@ const router = createBrowserRouter(
         {
           path: 'register',
           element: <Register />,
+        },
+        {
+          path: 'reservations',
+          element: <MyResevation />,
+          children: [
+            {
+              path: 'new',
+              element: <AddReserve />,
+            },
+          ],
+        },
+        {
+          path: '/cars',
+          element: <Home />,
+          children: [
+            {
+              path: ':id',
+              element: <CarDetails />,
+            },
+            {
+              path: 'new',
+              element: <AddCar />,
+            },
+            {
+              path: 'delete',
+              element: <DeleteCars />,
+            },
+          ],
         },
       ],
     },
