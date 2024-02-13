@@ -1,8 +1,8 @@
 <a name="readme-top"></a>
 
+
 <div align="center">
-    <img src="public/tesla-red-logo.png" alt="" width="170"  height="auto" />
-    <h2><b>Tesla | Book a Ride App</b></h2>
+    <img src="screenshots/cover-invert.png" alt="" width="200"  height="auto" />
 </div>
 
 ---
