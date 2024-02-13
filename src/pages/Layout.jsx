@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import SideNavBar from 'components/SideNavBar';
+import Sidebar from 'components/Sidebar';
 
 const Layout = () => (
   <>
-    <SideNavBar />
-    <main className="flex-1 bg-gray-600 text-white p-4">
+    <Sidebar />
+    <main className="flex-1 bg-gray-100 text-dark-blue p-4">
       <Outlet />
     </main>
   </>

@@ -9,7 +9,7 @@ import Login from 'pages/Login';
 import Register from 'pages/Register';
 import Missing from 'pages/Missing';
 import Home from 'pages/Home';
-import './index.css';
+import 'assets/styles/index.css';
 
 const router = createBrowserRouter(
   [
