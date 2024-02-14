@@ -25,7 +25,7 @@ const router = createBrowserRouter(
       element: <Layout />,
       errorElement: <Missing />,
       children: [
-        { path: '/', element: <Home /> },
+        { index: true, element: <Home /> },
         { path: 'unathorised', element: <Unauthorized /> },
         {
           path: 'login',

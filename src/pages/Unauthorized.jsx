@@ -6,7 +6,7 @@ const Unauthorized = () => (
     <br />
     <p>You do not have access to the requested page.</p>
     <div className="flexGrow">
-      <Link to="/" className="text-dark-blue">Go to home</Link>
+      <Link to="/" className="text-dark-blue font-bold">Go to home</Link>
     </div>
   </section>
 );
