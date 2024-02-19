@@ -32,7 +32,7 @@ const Layout = () => {
   return (
     <>
       <Sidebar />
-      <main className="flex-1 bg-gray-100 text-dark-blue p-4 overflow-auto">
+      <main className="flex-1 text-black p-4 overflow-auto">
         {renderContent()}
       </main>
     </>

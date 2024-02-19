@@ -21,7 +21,7 @@ function CarList({ cars }) {
   };
 
   return (
-    <div>
+    <div className="my-5 py-5">
       <div className="flex justify-center w-full">
         <div className="flex space-x-4">
           {[...Array(totalSlides)].map((_, index) => (
@@ -46,7 +46,7 @@ function CarList({ cars }) {
           onClick={handlePrev}
           disabled={currentIndex === 0}
           className={`mr-4 px-2 py-1 rounded-md ${
-            currentIndex === 0 ? 'bg-gray-200 text-gray-500' : 'bg-green-500 text-white'
+            currentIndex === 0 ? 'bg-gray-200 text-gray-500' : 'bg-light-green text-white'
           }`}
         >
           &lt; Prev
@@ -54,7 +54,7 @@ function CarList({ cars }) {
         <div className="flex space-x-4">
           {cars.slice(currentIndex, Math.min(currentIndex + 3, totalCars)).map((car) => (
             <div key={car.id} className="w-1/3">
-              <div className="h-96 overflow-hidden">
+              <div className="h-60 overflow-hidden">
                 <Link to={`/cars/${car.id}`} className="block h-full">
                   <img
                     src={car.image_url}
@@ -75,7 +75,7 @@ function CarList({ cars }) {
           onClick={handleNext}
           disabled={currentIndex + 3 >= totalCars}
           className={`ml-4 px-2 py-1 rounded-md ${
-            currentIndex + 3 >= totalCars ? 'bg-gray-200 text-gray-500' : 'bg-green-500 text-white'
+            currentIndex + 3 >= totalCars ? 'bg-gray-200 text-gray-500' : 'bg-light-green text-white'
           }`}
         >
           Next &gt;
