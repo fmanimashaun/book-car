@@ -6,7 +6,8 @@ const Home = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Cars</h1>
+      <h2 className="text-2xl font-bold mb-4">Cars</h2>
+      <h3>Please select a car model</h3>
       <CarList cars={cars} />
     </div>
   );

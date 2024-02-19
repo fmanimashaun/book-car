@@ -20,8 +20,6 @@ function CarList({ cars }) {
     setCurrentIndex(prevIndex);
   };
 
-  console.log(cars.length);
-  console.log(totalSlides);
   return (
     <div>
       <div className="flex justify-center w-full">
@@ -33,9 +31,9 @@ function CarList({ cars }) {
               onClick={() => setCurrentIndex(index * 3)}
               className={`${
                 index * 3 === currentIndex
-                  ? 'bg-gray-800 text-white'
+                  ? 'bg-gray-800'
                   : 'bg-gray-200'
-              } px-2 py-1 rounded-full text-transparent h-5 w-5`}
+              } px-2 py-1 rounded-full text-transparent h-4 w-1`}
             >
               {index + 1}
             </button>
@@ -47,7 +45,9 @@ function CarList({ cars }) {
           type="button"
           onClick={handlePrev}
           disabled={currentIndex === 0}
-          className="mr-4 bg-gray-200 px-2 py-1 rounded-md"
+          className={`mr-4 px-2 py-1 rounded-md ${
+            currentIndex === 0 ? 'bg-gray-200 text-gray-500' : 'bg-green-500 text-white'
+          }`}
         >
           &lt; Prev
         </button>
@@ -74,10 +74,13 @@ function CarList({ cars }) {
           type="button"
           onClick={handleNext}
           disabled={currentIndex + 3 >= totalCars}
-          className="ml-4 bg-gray-200 px-2 py-1 rounded-md"
+          className={`ml-4 px-2 py-1 rounded-md ${
+            currentIndex + 3 >= totalCars ? 'bg-gray-200 text-gray-500' : 'bg-green-500 text-white'
+          }`}
         >
           Next &gt;
         </button>
+
       </div>
     </div>
   );
