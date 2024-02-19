@@ -5,7 +5,7 @@ const SideNavBar = () => {
   const isLogin = false;
   const role = '';
   return (
-    <aside className="flex flex-col items-center w-60 text-dark-blue" aria-label="Sidebar">
+    <aside className="flex flex-col items-center w-60 border-r-2 border-custom-gray" aria-label="Sidebar">
       <div className="pb-12 pt-4">
         <Link to="/" className="flex flex-col items-center">
           <img src={Logo} alt="logo" className="w-40" />

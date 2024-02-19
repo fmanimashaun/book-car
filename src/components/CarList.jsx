@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import triangle from '../assets/imgs/triangle.png';
+import facebook from '../assets/imgs/facebook.png';
+import twitter from '../assets/imgs/twitter.png';
+import instagram from '../assets/imgs/instagram.png';
+import shape from '../assets/imgs/shape.png';
 
 function CarList({ cars }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -49,7 +54,11 @@ function CarList({ cars }) {
             currentIndex === 0 ? 'bg-gray-200 text-gray-500' : 'bg-light-green text-white'
           }`}
         >
-          &lt; Prev
+          <img
+            src={triangle}
+            alt="Previous"
+            className="w-20 transform -rotate-90"
+          />
         </button>
         <div className="flex space-x-4">
           {cars.slice(currentIndex, Math.min(currentIndex + 3, totalCars)).map((car) => (
@@ -65,7 +74,15 @@ function CarList({ cars }) {
               </div>
               <div className="p-4">
                 <h2 className="text-xl font-bold">{car.name}</h2>
+                <div className="flex justify-center">
+                  <img src={shape} alt="shape" className="ml-5 transform rotate-45" />
+                </div>
                 <p>{car.description}</p>
+                <div className="flex w-full justify-center gap-3 pt-3">
+                  <img src={facebook} alt="facebook" className="w-10 h-10 cursor-pointer" />
+                  <img src={twitter} alt="twitter" className="w-10 h-10 cursor-pointer" />
+                  <img src={instagram} alt="instagram" className="w-10 h-10 cursor-pointer" />
+                </div>
               </div>
             </div>
           ))}
@@ -78,7 +95,11 @@ function CarList({ cars }) {
             currentIndex + 3 >= totalCars ? 'bg-gray-200 text-gray-500' : 'bg-light-green text-white'
           }`}
         >
-          Next &gt;
+          <img
+            src={triangle}
+            alt="Next"
+            className="w-20 transform rotate-90"
+          />
         </button>
 
       </div>
