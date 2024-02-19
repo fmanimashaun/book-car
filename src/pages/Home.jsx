@@ -1,37 +1,15 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCars } from '../app/redux/CarsSlice';
+import { useSelector } from 'react-redux';
+import CarList from 'components/CarList';
 
-const Cars = () => {
-  const dispatch = useDispatch();
-  const { cars, loading, error } = useSelector((state) => state.cars);
-
-  useEffect(() => {
-    dispatch(fetchCars());
-  }, [dispatch]);
+const Home = () => {
+  const { appData: { cars } } = useSelector((state) => state.appData);
 
   return (
     <div>
-      {loading && <p>Loading...</p>}
-      {error && (
-      <p>
-        Error:
-        {error}
-      </p>
-      )}
-      {cars && (
-        <ul>
-          {cars.map((car) => (
-            <li key={car.id}>
-              {car.name}
-              {' '}
-              {car.description}
-            </li>
-          ))}
-        </ul>
-      )}
+      <h1 className="text-2xl font-bold mb-4">Cars</h1>
+      <CarList cars={cars} />
     </div>
   );
 };
 
-export default Cars;
+export default Home;

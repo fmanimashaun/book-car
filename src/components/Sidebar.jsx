@@ -2,8 +2,8 @@ import { NavLink, Link } from 'react-router-dom';
 import Logo from 'assets/imgs/transparent-logo.png';
 
 const SideNavBar = () => {
-  const isLogin = true;
-  const role = 'admin';
+  const isLogin = false;
+  const role = '';
   return (
     <aside className="flex flex-col items-center w-60 text-dark-blue" aria-label="Sidebar">
       <div className="pb-12 pt-4">

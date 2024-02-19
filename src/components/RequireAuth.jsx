@@ -2,12 +2,12 @@ import { Navigate, Outlet } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const RequireAuth = ({ allowedRoles }) => {
-  const isLogin = true;
-  const role = 'user';
+  const isLogin = false;
+  const role = '';
 
   if (!isLogin) {
     return <Navigate to="/login" />;
-  } if (allowedRoles && !allowedRoles.includes(role)) {
+  } if (!allowedRoles.includes(role)) {
     return <Navigate to="/unathorised" />;
   }
   return <Outlet />;

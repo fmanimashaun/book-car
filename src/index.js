@@ -40,18 +40,26 @@ const router = createBrowserRouter(
           children: [
             {
               path: 'reservations',
-              element: <MyResevation />,
-            },
-            {
-              path: 'reservations/new',
-              element: <AddReserve />,
+              children: [
+                {
+                  index: true,
+                  element: <MyResevation />,
+                },
+                {
+                  path: 'new',
+                  element: <AddReserve />,
+                },
+              ],
             },
           ],
         },
         {
           path: 'cars',
-          element: <Home />,
           children: [
+            {
+              index: true,
+              element: <Home />,
+            },
             {
               path: ':id',
               element: <CarDetails />,
