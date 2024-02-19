@@ -9,6 +9,9 @@ module.exports = {
         'light-green': '#74E291',
         'dark-green': '#274931',
       },
+      width: {
+        'fit-content': 'fit-content',
+      },
     },
   },
   variants: {
