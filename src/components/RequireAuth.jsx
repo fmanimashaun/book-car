@@ -1,11 +1,11 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 const RequireAuth = ({ allowedRoles }) => {
-  const isLogin = false;
-  const role = '';
+  const { isLoggedIn, role } = useSelector((state) => state.auth);
 
-  if (!isLogin) {
+  if (!isLoggedIn) {
     return <Navigate to="/login" />;
   } if (!allowedRoles.includes(role)) {
     return <Navigate to="/unathorised" />;

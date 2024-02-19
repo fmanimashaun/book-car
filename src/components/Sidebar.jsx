@@ -1,9 +1,12 @@
 import { NavLink, Link } from 'react-router-dom';
 import Logo from 'assets/imgs/transparent-logo.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from 'app/redux/auth/authSlice';
 
 const SideNavBar = () => {
-  const isLogin = false;
-  const role = '';
+  const dispatch = useDispatch();
+  const { isLoggedIn, role } = useSelector((state) => state.auth);
+
   return (
     <aside className="flex flex-col items-center w-60 border-r-2" aria-label="Sidebar">
       <div className="pb-12 pt-4">
@@ -44,7 +47,7 @@ const SideNavBar = () => {
               RESERVE A CAR
             </NavLink>
           </li>
-          {isLogin && role === 'admin' && (
+          {isLoggedIn && role === 'admin' && (
             <>
               <li>
                 <NavLink
@@ -67,7 +70,7 @@ const SideNavBar = () => {
         </ul>
       </nav>
       <div className="mt-auto">
-        {!isLogin ? (
+        {!isLoggedIn ? (
           <p className="text-center pb-4">
             <Link to="/login" className="font-bold text-lg">
               LOGIN
@@ -79,7 +82,7 @@ const SideNavBar = () => {
           </p>
         ) : (
           <p className="text-center pb-4">
-            <button type="button" className="font-bold text-lg">
+            <button type="button" className="font-bold text-lg" onClick={() => dispatch(logout())}>
               LOGOUT
             </button>
           </p>
