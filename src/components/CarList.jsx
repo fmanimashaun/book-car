@@ -36,8 +36,8 @@ function CarList({ cars }) {
               onClick={() => setCurrentIndex(index * 3)}
               className={`${
                 index * 3 === currentIndex
-                  ? 'bg-gray-800'
-                  : 'bg-gray-200'
+                  ? 'bg-black'
+                  : 'bg-light-gray'
               } px-2 py-1 rounded-full text-transparent h-4 w-1`}
             >
               {index + 1}
@@ -51,7 +51,7 @@ function CarList({ cars }) {
           onClick={handlePrev}
           disabled={currentIndex === 0}
           className={`mr-4 px-2 py-1 rounded-md ${
-            currentIndex === 0 ? 'bg-gray-200 text-gray-500' : 'bg-light-green text-white'
+            currentIndex === 0 ? 'bg-light-gray text-gray-500' : 'bg-light-green text-white'
           }`}
         >
           <img
@@ -77,7 +77,7 @@ function CarList({ cars }) {
                 <div className="flex justify-center">
                   <img src={shape} alt="shape" className="ml-5 transform rotate-45" />
                 </div>
-                <p>{car.description}</p>
+                <p className="text-light-gray">{car.description}</p>
                 <div className="flex w-full justify-center gap-3 pt-3">
                   <img src={facebook} alt="facebook" className="w-10 h-10 cursor-pointer" />
                   <img src={twitter} alt="twitter" className="w-10 h-10 cursor-pointer" />
@@ -92,7 +92,7 @@ function CarList({ cars }) {
           onClick={handleNext}
           disabled={currentIndex + 3 >= totalCars}
           className={`ml-4 px-2 py-1 rounded-md ${
-            currentIndex + 3 >= totalCars ? 'bg-gray-200 text-gray-500' : 'bg-light-green text-white'
+            currentIndex + 3 >= totalCars ? 'bg-light-gray text-gray-500' : 'bg-light-green text-white'
           }`}
         >
           <img
