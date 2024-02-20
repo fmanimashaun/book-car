@@ -6,7 +6,7 @@ export const fetchAppData = createAsyncThunk('cars/fetchAppData', async () => {
   return response.data;
 });
 
-export const deleteCar = createAsyncThunk(
+export const deleteCarFromDatabase = createAsyncThunk(
   'cars/deleteCar',
   async (options, thunkAPI) => {
     try {
@@ -35,7 +35,17 @@ const initialState = {
 const appDataSlice = createSlice({
   name: 'cars',
   initialState,
-  reducers: {},
+  reducers: {
+    deleteCar: (state, action) => ({
+      ...state,
+      loading: false,
+      error: false,
+      appData: {
+        ...state.appData,
+        cars: state.appData.cars.filter((car) => car.id !== action.payload),
+      },
+    }),
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchAppData.pending, (state) => ({
@@ -59,16 +69,16 @@ const appDataSlice = createSlice({
         loading: false,
         error: action.error.message,
       }))
-      .addCase(deleteCar.pending, (state) => ({
+      .addCase(deleteCarFromDatabase.pending, (state) => ({
         ...state,
         loading: true,
       }))
-      .addCase(deleteCar.rejected, (state, action) => ({
+      .addCase(deleteCarFromDatabase.rejected, (state, action) => ({
         ...state,
         loading: false,
         error: action.payload,
       }))
-      .addCase(deleteCar.fulfilled, (state, action) => ({
+      .addCase(deleteCarFromDatabase.fulfilled, (state, action) => ({
         ...state,
         loading: false,
         error: false,
@@ -80,4 +90,5 @@ const appDataSlice = createSlice({
   },
 });
 
+export const { deleteCar } = appDataSlice.actions;
 export default appDataSlice.reducer;
