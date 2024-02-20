@@ -6,6 +6,22 @@ export const fetchAppData = createAsyncThunk('cars/fetchAppData', async () => {
   return response.data;
 });
 
+export const deleteCar = createAsyncThunk(
+  'cars/deleteCar',
+  async (options, thunkAPI) => {
+    try {
+      await axios.delete(`http://127.0.0.1:4000/api/v1/cars/${options.carId}`, {
+        headers: {
+          Authorization: `Bearer ${options.token}`,
+        },
+      });
+      return options.carId;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
 const initialState = {
   appData: {
     cars: [],
