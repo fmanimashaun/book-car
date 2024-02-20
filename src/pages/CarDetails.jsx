@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarDetails } from 'app/redux/carDetailsSlice';
 import triangle from '../assets/imgs/triangle.png';
 import circle from '../assets/imgs/color-circle.png';
+import reserve from '../assets/imgs/reserve.png';
+import reserveArrow from '../assets/imgs/reserve-arrow.png';
 
 const CarDetails = () => {
   const [showMoreDetails, setShowMoreDetails] = useState(false);
@@ -53,7 +55,7 @@ const CarDetails = () => {
         return (
           <>
             <div className="flex">
-              <div className="lg:flex-grow">
+              <div className="lg:flex-grow pt-10 mt-10">
                 <img
                   className="w-full h-auto p-4"
                   src={currentCar?.image_url}
@@ -97,6 +99,13 @@ const CarDetails = () => {
                 </div>
                 <div className="flex justify-end">
                   <img src={circle} alt="color-circle" className="w-36" />
+                </div>
+                <div className="flex justify-end">
+                  <Link to="/reservations/new" className="bg-light-green flex rounded-full text-white p-3 text-lg justify-between ">
+                    <img src={reserve} alt="reserve" />
+                    &nbsp;Reserve&nbsp;
+                    <img src={reserveArrow} alt="reserve-arrow" />
+                  </Link>
                 </div>
               </div>
             </div>
