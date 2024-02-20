@@ -1,17 +1,19 @@
-import { deleteCar } from 'app/redux/AppDataSlice';
+import { deleteCarFromDatabase } from 'app/redux/AppDataSlice';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const DeleteCars = () => {
   const cars = [...useSelector((store) => store.appData.appData.cars)];
-  // const token = useSelector((store) => store.auth.token);
+  // const token = useSelector(z(store) => store.auth.token);
   const dispatch = useDispatch();
   if (cars.length) {
     cars.sort((a, b) => a.id - b.id);
   }
 
   const handleDelete = (carId) => {
-    dispatch(deleteCar(carId));
+    const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
+    const options = { carId, token };
+    dispatch(deleteCarFromDatabase(options));
   };
 
   return (
