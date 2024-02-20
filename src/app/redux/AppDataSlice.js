@@ -70,6 +70,8 @@ const appDataSlice = createSlice({
       }))
       .addCase(deleteCar.fulfilled, (state, action) => ({
         ...state,
+        loading: false,
+        error: false,
         appData: {
           ...state.appData,
           cars: state.appData.cars.filter((car) => car.id !== action.payload),
