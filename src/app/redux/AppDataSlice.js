@@ -58,6 +58,22 @@ const appDataSlice = createSlice({
         ...state,
         loading: false,
         error: action.error.message,
+      }))
+      .addCase(deleteCar.pending, (state) => ({
+        ...state,
+        loading: true,
+      }))
+      .addCase(deleteCar.rejected, (state, action) => ({
+        ...state,
+        loading: false,
+        error: action.payload,
+      }))
+      .addCase(deleteCar.fulfilled, (state, action) => ({
+        ...state,
+        appData: {
+          ...state.appData,
+          cars: state.appData.cars.filter((car) => car.id !== action.payload),
+        },
       }));
   },
 });
