@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { checkExpiry, decodeToken } from 'helpers/decodeJwt';
+import { checkExpiry } from 'helpers/decodeJwt';
 
 const request = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
@@ -24,7 +24,7 @@ export const login = createAsyncThunk(
       });
 
       const token = resp.headers.authorization.split(' ')[1];
-      return token;
+      return { token, role: resp.data.data.role };
     } catch (error) {
       if (error.response) {
         if (error.response.status === 401) {
@@ -48,7 +48,7 @@ export const register = createAsyncThunk(
       });
 
       const token = resp.headers.authorization.split(' ')[1];
-      return token;
+      return { token, role: resp.data.data.role };
     } catch (error) {
       if (error.response) {
         if (error.response.status === 422) {
@@ -84,29 +84,21 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(login.pending, (state) => ({ ...state, isLoading: true, message: '' }))
-      .addCase(login.fulfilled, (state, { payload }) => {
-        const decoded = decodeToken(payload);
-
-        return ({
-          isLoggedIn: true,
-          token: payload,
-          isLoading: false,
-          role: decoded.user,
-        });
-      })
+      .addCase(login.fulfilled, (state, { payload }) => ({
+        isLoggedIn: true,
+        token: payload.token,
+        isLoading: false,
+        role: payload.role,
+      }))
       .addCase(login.rejected,
         (state, action) => ({ ...state, isLoading: false, message: action.payload }))
       .addCase(register.pending, (state) => ({ ...state, isLoading: true, message: '' }))
-      .addCase(register.fulfilled, (state, { payload }) => {
-        const decoded = decodeToken(payload);
-
-        return ({
-          isLoggedIn: true,
-          token: payload,
-          isLoading: false,
-          role: decoded.user,
-        });
-      })
+      .addCase(register.fulfilled, (state, { payload }) => ({
+        isLoggedIn: true,
+        token: payload.token,
+        isLoading: false,
+        role: payload.role,
+      }))
       .addCase(register.rejected,
         (state, action) => ({ ...state, isLoading: false, message: action.payload }));
   },
