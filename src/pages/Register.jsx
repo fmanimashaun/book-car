@@ -144,7 +144,7 @@ const Register = () => {
 
         <p className="mt-10 text-center text-sm text-gray-500">
           Already a member?
-          <Link to="/book-car/login" className="mx-1.5 font-semibold leading-6 text-light-green hover:text-green-400">Login</Link>
+          <Link to="/login" className="mx-1.5 font-semibold leading-6 text-light-green hover:text-green-400">Login</Link>
         </p>
       </div>
     </div>
