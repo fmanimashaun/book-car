@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/book-car/static/css/main.eb49e92e.css",
+    "main.js": "/book-car/static/js/main.3af5f814.js",
+    "static/media/transparent-logo.png": "/book-car/static/media/transparent-logo.459dd8142dba4186db7e.png",
+    "static/media/triangle.png": "/book-car/static/media/triangle.9e471804b777d67a3158.png",
+    "index.html": "/book-car/index.html",
+    "main.eb49e92e.css.map": "/book-car/static/css/main.eb49e92e.css.map",
+    "main.3af5f814.js.map": "/book-car/static/js/main.3af5f814.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eb49e92e.css",
+    "static/js/main.3af5f814.js"
+  ]
+}
