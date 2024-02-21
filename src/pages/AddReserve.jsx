@@ -11,6 +11,7 @@ const Reserve = () => {
   const [city, setCity] = useState('');
   const [date, setDate] = useState(''); // Added date state
   const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,6 +43,7 @@ const Reserve = () => {
       }
 
       // Handle successful response...
+      setSuccessMessage('Reservation created successfully!');
     } catch (error) {
       setError(error.message);
     }
@@ -50,6 +52,7 @@ const Reserve = () => {
   return (
     <div>
       <h2>Make a Reservation</h2>
+      {successMessage && <p>{successMessage}</p>}
       <form onSubmit={handleSubmit}>
         {error && <p>{error}</p>}
         <div>
