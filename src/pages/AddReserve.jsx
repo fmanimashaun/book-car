@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { jwtDecode } from 'jwt-decode';
+import carCollage from '../assets/imgs/car-collage.jpg';
 
 const Reserve = () => {
   const accessToken = useSelector((state) => state.auth.token);
@@ -50,9 +51,11 @@ const Reserve = () => {
   };
 
   return (
-    <div>
-      <h2>Make a Reservation</h2>
-      {successMessage && <p>{successMessage}</p>}
+    <div
+      className="bg-opacity-70 rounded-lg h-full bg-center bg-no-repeat p-10 text-white text-center "
+      style={{ backgroundImage: `linear-gradient(rgba(151, 191, 15, 0.9), rgba(151, 191, 15, 0.9)), url(${carCollage})` }}
+    >
+      <h2 className="bold text-3xl font-black tracking-widest">BOOK A CAR TEST-RIDE</h2>
       <form onSubmit={handleSubmit}>
         {error && <p>{error}</p>}
         <div>
@@ -84,6 +87,7 @@ const Reserve = () => {
           </label>
         </div>
         <button type="submit">Submit Reservation</button>
+        {successMessage && <p>{successMessage}</p>}
       </form>
     </div>
   );
