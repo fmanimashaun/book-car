@@ -1,9 +1,13 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { checkExpiry } from 'helpers/decodeJwt';
 
 const RequireAuth = ({ allowedRoles }) => {
-  const { isLoggedIn, role } = useSelector((state) => state.auth);
+  const { isLoggedIn, role, token } = useSelector((state) => state.auth);
+  const isExpired = checkExpiry(token);
+
+  if (isExpired) return <Navigate to="/login" />;
 
   if (!isLoggedIn) {
     return <Navigate to="/login" />;
