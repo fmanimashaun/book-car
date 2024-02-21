@@ -102,7 +102,7 @@ const Login = () => {
 
         <p className="mt-10 text-center text-sm text-gray-500">
           Not a member?
-          <Link to="/book-car/register" className="mx-1.5 font-semibold leading-6 text-light-green hover:text-green-400">Register</Link>
+          <Link to="/register" className="mx-1.5 font-semibold leading-6 text-light-green hover:text-green-400">Register</Link>
         </p>
       </div>
     </div>

@@ -9,9 +9,11 @@ export const decodeToken = (token) => {
 };
 
 export const checkExpiry = (token) => {
+  if (!token) return true;
+
   const decoded = jwtDecode(token);
 
-  const isExpired = decoded.exp < Date.now();
+  const isExpired = decoded.exp < Date.now() / 1000;
 
   return isExpired;
 };
