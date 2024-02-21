@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { jwtDecode } from 'jwt-decode';
+import { useLocation } from 'react-router-dom';
 import carCollage from '../assets/imgs/car-collage.jpg';
 
 const Reserve = () => {
   const accessToken = useSelector((state) => state.auth.token);
   const cars = useSelector((state) => state.appData.appData.cars);
   const cities = useSelector((state) => state.appData.appData.cities);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const initialCarId = queryParams.get('carId');
 
-  const [carId, setCarId] = useState('');
+  const [carId, setCarId] = useState(initialCarId || '');
   const [city, setCity] = useState('');
   const [date, setDate] = useState(''); // Added date state
   const [error, setError] = useState(null);
