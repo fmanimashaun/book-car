@@ -98,7 +98,7 @@ const CarDetails = () => {
                   </button>
                 </div>
                 <div className="flex justify-end">
-                  <img src={circle} alt="color-circle" className="w-36" />
+                  <img src={circle} alt="color-circle" className="w-28" />
                 </div>
                 <div className="flex justify-end">
                   <Link to="/reservations/new" className="bg-light-green flex rounded-full text-white p-3 text-lg justify-between ">
