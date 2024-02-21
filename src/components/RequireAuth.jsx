@@ -11,7 +11,8 @@ const RequireAuth = ({ allowedRoles }) => {
 
   if (!isLoggedIn) {
     return <Navigate to="/login" />;
-  } if (!allowedRoles.includes(role)) {
+  }
+  if (!allowedRoles.includes(role)) {
     return <Navigate to="/unathorised" />;
   }
   return <Outlet />;
