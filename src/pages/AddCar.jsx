@@ -1,14 +1,19 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { fetchAppData } from 'app/redux/AppDataSlice';
 
 export default function AddCar() {
   const engineTypes = useSelector((store) => store.appData.appData.engine_type);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAppData);
+  }, [dispatch]);
   const [formData, setFormData] = useState({
     name: '',
     description: '',
     image_url: '',
-    engine_type_id: '',
+    engine_type_id: engineTypes[0].id,
     horsepower: null,
     torque: null,
     fuel_economy: '',
@@ -20,11 +25,6 @@ export default function AddCar() {
     tech_features: '',
     special_features: '',
   });
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchAppData);
-  }, [dispatch]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -83,7 +83,6 @@ export default function AddCar() {
       <h2 className="text-2xl font-bold mb-3">Add a new Car</h2>
       <form
         onSubmit={handleSubmit}
-        // className="max-w-xl mx-auto p-6 bg-white shadow-md rounded-md"
       >
         <input
           required
@@ -122,6 +121,7 @@ export default function AddCar() {
             name="engine_type_id"
             id="selectCar"
             className="form-select my-2"
+            value={formData.engine_type_id}
             onChange={handleChange}
           >
             {engineTypes.map((engine) => (
