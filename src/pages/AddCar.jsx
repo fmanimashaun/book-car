@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 export default function AddCar() {
   const engineTypes = useSelector((store) => store.appData.appData.engine_type);
@@ -77,5 +78,161 @@ export default function AddCar() {
     }
   };
 
-  return <div>AddCar</div>;
+  return (
+    <section className="mx-auto p-6 bg-white shadow-md rounded-md">
+      <h2 className="text-2xl font-bold mb-3">Add a new Car</h2>
+      <form
+        onSubmit={handleSubmit}
+        // className="max-w-xl mx-auto p-6 bg-white shadow-md rounded-md"
+      >
+        <input
+          required
+          type="text"
+          name="name"
+          onChange={handleChange}
+          value={formData.name}
+          placeholder="Name"
+          className="form-control mb-2"
+        />
+        <textarea
+          required
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          placeholder="Descripton"
+          className="form-control mb-2"
+          rows={5}
+        />
+        {/* image Url */}
+        <input
+          required
+          type="text"
+          name="image_url"
+          onChange={handleChange}
+          value={formData.image_url}
+          placeholder="Image Url"
+          className="form-control mb-2"
+        />
+        <br />
+        <label htmlFor="selectCar" className="w-100 mb-2">
+          Engine type
+          <br />
+          <select
+            required
+            name="engine_type_id"
+            id="selectCar"
+            className="form-select my-2"
+            onChange={handleChange}
+          >
+            {engineTypes.map((engine) => (
+              <option value={engine.id} key={engine.id}>
+                {engine.name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <input
+          required
+          type="number"
+          min="1"
+          name="horsepower"
+          onChange={handleChange}
+          value={formData.horsepower}
+          placeholder="Horsepower"
+          className="form-control mb-2"
+        />
+        <input
+          required
+          type="number"
+          min="1"
+          name="torque"
+          onChange={handleChange}
+          value={formData.torque}
+          placeholder="Torque"
+          className="form-control mb-2"
+        />
+
+        <input
+          required
+          type="number"
+          min="1"
+          name="range"
+          onChange={handleChange}
+          value={formData.range}
+          placeholder="Range"
+          className="form-control mb-2"
+        />
+        <input
+          required
+          type="text"
+          name="fuel_economy"
+          onChange={handleChange}
+          value={formData.fuel_economy}
+          placeholder="Fuel Economy"
+          className="form-control mb-2"
+        />
+        <input
+          required
+          type="number"
+          min="1"
+          name="seating_capacity"
+          onChange={handleChange}
+          value={formData.seating_capacity}
+          placeholder="Seating Capacity"
+          className="form-control mb-2"
+        />
+        <input
+          required
+          type="text"
+          name="cargo_space"
+          onChange={handleChange}
+          value={formData.cargo_space}
+          placeholder="Cargo Space"
+          className="form-control mb-2"
+        />
+        <input
+          required
+          type="text"
+          name="infotainment_system"
+          onChange={handleChange}
+          value={formData.infotainment_system}
+          placeholder="Infotainment System"
+          className="form-control mb-2"
+        />
+        <input
+          required
+          type="text"
+          name="safety_rating"
+          onChange={handleChange}
+          value={formData.safety_rating}
+          placeholder="Safety Rating"
+          className="form-control mb-2"
+        />
+        <input
+          required
+          type="text"
+          name="tech_features"
+          onChange={handleChange}
+          value={formData.tech_features}
+          placeholder="Tech Features"
+          className="form-control mb-2"
+        />
+        <input
+          required
+          type="text"
+          name="special_features"
+          onChange={handleChange}
+          value={formData.special_features}
+          placeholder="Special Features"
+          className="form-control mb-2"
+        />
+        <button
+          type="submit"
+          className="hover:bg-green-600 bg-light-green text-white font-bold py-2 px-4 rounded"
+        >
+          Add Car
+        </button>
+      </form>
+    </section>
+  );
 }
