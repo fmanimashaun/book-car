@@ -61,7 +61,7 @@ const router = createBrowserRouter(
           ],
         },
         {
-          element: <RequireAuth allowedRoles={['admin']} />,
+          // element: <RequireAuth allowedRoles={['admin']} />,
           children: [
             {
               path: 'cars/new',

@@ -1,8 +1,5 @@
-const AddCar = () => (
-  <div>
-    <h1>Add Car form</h1>
-    <p>The add car form goes here</p>
-  </div>
-);
+import React from 'react';
 
-export default AddCar;
+export default function AddCar() {
+  return <div>AddCar</div>;
+}
