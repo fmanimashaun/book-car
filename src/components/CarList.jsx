@@ -50,7 +50,7 @@ function CarList({ cars }) {
           type="button"
           onClick={handlePrev}
           disabled={currentIndex === 0}
-          className={`mr-4 px-2 py-1 rounded-md ${
+          className={`mr-4 px-2 py-1 rounded-r-md ${
             currentIndex === 0 ? 'bg-light-gray text-gray-500' : 'bg-light-green text-white'
           }`}
         >
@@ -91,7 +91,7 @@ function CarList({ cars }) {
           type="button"
           onClick={handleNext}
           disabled={currentIndex + 3 >= totalCars}
-          className={`ml-4 px-2 py-1 rounded-md ${
+          className={`ml-4 px-2 py-1 rounded-l-md ${
             currentIndex + 3 >= totalCars ? 'bg-light-gray text-gray-500' : 'bg-light-green text-white'
           }`}
         >
