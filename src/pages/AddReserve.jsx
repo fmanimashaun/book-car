@@ -82,8 +82,8 @@ const Reserve = () => {
         </select>
         <input className="bg-light-green p-4 rounded-full border-2 border-white focus:outline-none" type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} />
         <button className="bg-white p-4 rounded-full border border-white text-light-green" type="submit">Book now</button>
-        {successMessage && <p>{successMessage}</p>}
       </form>
+      {successMessage && <p>{successMessage}</p>}
     </div>
   );
 };
