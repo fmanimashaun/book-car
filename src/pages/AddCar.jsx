@@ -14,8 +14,8 @@ export default function AddCar() {
     description: '',
     image_url: '',
     engine_type_id: engineTypes[0].id,
-    horsepower: null,
-    torque: null,
+    horsepower: '',
+    torque: '',
     fuel_economy: '',
     range: '',
     seating_capacity: '',
@@ -81,9 +81,7 @@ export default function AddCar() {
   return (
     <section className="mx-auto p-6 bg-white shadow-md rounded-md">
       <h2 className="text-2xl font-bold mb-3">Add a new Car</h2>
-      <form
-        onSubmit={handleSubmit}
-      >
+      <form onSubmit={handleSubmit}>
         <input
           required
           type="text"
