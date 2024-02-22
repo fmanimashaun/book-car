@@ -55,14 +55,14 @@ const CarDetails = () => {
         return (
           <>
             <div className="flex">
-              <div className="lg:flex-grow pt-10 mt-10">
+              <div className="flex-grow pt-10 mt-10 max-h-96">
                 <img
-                  className="w-full h-auto p-4"
+                  className="w-full h-auto p-4 max-w-xl justify-self-center mx-auto"
                   src={currentCar?.image_url}
                   alt={currentCar?.name}
                 />
               </div>
-              <div className="lg:w-1/3 p-10 pb-0 text-right">
+              <div className="lg:w-2/5 p-10 pb-0 text-right">
                 <h2 className="text-3xl font-bold mb-4 text-right">{currentCar?.name}</h2>
                 <p className="text-right">{currentCar?.description}</p>
                 <table className="table-auto inline-block align-top text-sm">
