@@ -132,7 +132,7 @@ const Register = () => {
                 </div>
 
                 <div>
-                  <button disabled={auth.isLoading} type="submit" className={`flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${auth.isLoading ? 'cursor-not-allowed' : ''}`}>Sign in</button>
+                  <button disabled={auth.isLoading} type="submit" className={`flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${auth.isLoading ? 'cursor-not-allowed' : ''}`}>Register</button>
                 </div>
                 <div className="text-sm">
                   <Link to="/book-car/auth/forgot-password" className="font-semibold text-light-green hover:text-green-400">Forgot password?</Link>

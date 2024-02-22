@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import store, { persistor } from 'app/store';
 import { Provider } from 'react-redux';
 import Layout from 'pages/Layout';
@@ -17,7 +17,6 @@ import MyResevation from 'pages/MyResevation';
 import RequireAuth from 'components/RequireAuth';
 import Unauthorized from 'pages/Unauthorized';
 import 'assets/styles/index.css';
-import AuthLayout from 'components/AuthLayout';
 import { PersistGate } from 'redux-persist/integration/react';
 
 const router = createBrowserRouter(
@@ -28,66 +27,30 @@ const router = createBrowserRouter(
       errorElement: <Missing />,
       children: [
         { index: true, element: <Home /> },
-        { path: 'unathorised', element: <Unauthorized /> },
+        { path: 'unauthorized', element: <Unauthorized /> },
         {
-          element: <RequireAuth />,
+          element: <RequireAuth allowedRoles={['admin', 'user']} />,
           children: [
             {
               path: 'reservations',
               children: [
-                {
-                  index: true,
-                  element: <MyResevation />,
-                },
-                {
-                  path: 'new',
-                  element: <AddReserve />,
-                },
+                { index: true, element: <MyResevation /> },
+                { path: 'new', element: <AddReserve /> },
               ],
             },
           ],
         },
-        {
-          path: 'cars',
-          children: [
-            {
-              index: true,
-              element: <Home />,
-            },
-            {
-              path: ':id',
-              element: <CarDetails />,
-            },
-          ],
-        },
+        { path: 'cars/:id', element: <CarDetails /> },
+        { path: 'cars', element: <Navigate to="/" replace /> },
         {
           element: <RequireAuth allowedRoles={['admin']} />,
           children: [
-            {
-              path: 'cars/new',
-              element: <AddCar />,
-            },
-            {
-              path: 'cars/delete',
-              element: <DeleteCars />,
-            },
+            { path: 'cars/new', element: <AddCar /> },
+            { path: 'cars/delete', element: <DeleteCars /> },
           ],
         },
-      ],
-    },
-    {
-      path: '/',
-      element: <AuthLayout />,
-      errorElement: <Missing />,
-      children: [
-        {
-          path: 'login',
-          element: <Login />,
-        },
-        {
-          path: 'register',
-          element: <Register />,
-        },
+        { path: 'login', element: <Login /> },
+        { path: 'register', element: <Register /> },
       ],
     },
   ],
