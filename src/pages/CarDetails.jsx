@@ -101,7 +101,7 @@ const CarDetails = () => {
                   <img src={circle} alt="color-circle" className="w-28" />
                 </div>
                 <div className="flex justify-end">
-                  <Link to={`/reservations/new?carId=${currentCar.id}`} className="bg-light-green flex rounded-full text-white p-3 text-lg justify-between ">
+                  <Link to={`/reservations/new?carId=${currentCar?.id}`} className="bg-light-green flex rounded-full text-white p-3 text-lg justify-between ">
                     <img src={reserve} alt="reserve" />
                     &nbsp;Reserve&nbsp;
                     <img src={reserveArrow} alt="reserve-arrow" />
