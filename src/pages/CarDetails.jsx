@@ -61,11 +61,8 @@ const CarDetails = () => {
                   src={currentCar?.image_url}
                   alt={currentCar?.name}
                 />
-                <Link to="/">
-                  <img src={triangle} className="bg-light-green w-16 transform -rotate-90 rounded-b-xl" alt="Home" />
-                </Link>
               </div>
-              <div className="lg:w-1/3 p-10 text-right">
+              <div className="lg:w-1/3 p-10 pb-0 text-right">
                 <h2 className="text-3xl font-bold mb-4 text-right">{currentCar?.name}</h2>
                 <p className="text-right">{currentCar?.description}</p>
                 <table className="table-auto inline-block align-top text-sm">
@@ -100,14 +97,17 @@ const CarDetails = () => {
                 <div className="flex justify-end">
                   <img src={circle} alt="color-circle" className="w-28" />
                 </div>
-                <div className="flex justify-end">
-                  <Link to={`/reservations/new?carId=${currentCar?.id}`} className="bg-light-green flex rounded-full text-white p-3 text-lg justify-between ">
-                    <img src={reserve} alt="reserve" />
-                    &nbsp;Reserve&nbsp;
-                    <img src={reserveArrow} alt="reserve-arrow" />
-                  </Link>
-                </div>
               </div>
+            </div>
+            <div className="flex justify-between">
+              <Link to="/" className="flex justify-between">
+                <img src={triangle} className="bg-light-green w-16 transform -rotate-90 rounded-b-xl" alt="Home" />
+              </Link>
+              <Link to={`/reservations/new?carId=${currentCar?.id}`} className="bg-light-green flex rounded-full text-white p-3 text-lg justify-between ">
+                <img src={reserve} alt="reserve" />
+                &nbsp;Reserve&nbsp;
+                <img src={reserveArrow} alt="reserve-arrow" />
+              </Link>
             </div>
           </>
         );
