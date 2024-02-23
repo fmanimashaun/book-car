@@ -1,8 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api/v1`;
+
 export const fetchAppData = createAsyncThunk('cars/fetchAppData', async () => {
-  const response = await axios.get('http://localhost:4000/api/v1/initial_data');
+  const response = await axios.get(`${BASE_URL}/initial_data`);
   return response.data;
 });
 
@@ -10,7 +12,7 @@ export const deleteCarFromDatabase = createAsyncThunk(
   'cars/deleteCar',
   async (options, thunkAPI) => {
     try {
-      await axios.delete(`http://127.0.0.1:4000/api/v1/cars/${options.carId}`, {
+      await axios.delete(`${BASE_URL}/cars/${options.carId}`, {
         headers: {
           Authorization: `Bearer ${options.token}`,
         },

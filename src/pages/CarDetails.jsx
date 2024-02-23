@@ -1,10 +1,16 @@
 /* eslint-disable max-len */
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+
+import { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarDetails } from 'app/redux/carDetailsSlice';
+import triangle from '../assets/imgs/triangle.png';
+import circle from '../assets/imgs/color-circle.png';
+import reserve from '../assets/imgs/reserve.png';
+import reserveArrow from '../assets/imgs/reserve-arrow.png';
 
 const CarDetails = () => {
+  const [showMoreDetails, setShowMoreDetails] = useState(false);
   const { id } = useParams();
   const dispatch = useDispatch();
   const {
@@ -16,6 +22,21 @@ const CarDetails = () => {
   useEffect(() => {
     dispatch(fetchCarDetails(id));
   }, [id, dispatch]);
+
+  const desiredKeys = ['torque', 'fuel_economy', 'seating_capacity', 'cargo_space'];
+  const extraDetails = ['infotainment_system', 'safety_rating', 'tech_features', 'special_features'];
+
+  const filteredDetails = Object.entries(currentCar?.car_detail || {})
+    .filter(([key]) => desiredKeys.includes(key))
+    .map(([key, value]) => [key.replace(/_/g, ' '), value]);
+
+  const extraDetailsArray = Object.entries(currentCar?.car_detail || {})
+    .filter(([key]) => extraDetails.includes(key))
+    .map(([key, value]) => [key.replace(/_/g, ' '), value]);
+
+  const handleShowMoreDetails = () => {
+    setShowMoreDetails(!showMoreDetails);
+  };
 
   return (
     <div>
@@ -33,76 +54,60 @@ const CarDetails = () => {
         }
         return (
           <>
-            <div className="flex flex-col">
-              <div className="lg:flex-grow p-4">
+            <div className="flex">
+              <div className="flex-grow pt-10 mt-10 max-h-96">
                 <img
-                  className="w-full h-auto"
+                  className="w-full h-auto p-4 max-w-xl justify-self-center mx-auto"
                   src={currentCar?.image_url}
-                  alt="Vespa Scooter"
+                  alt={currentCar?.name}
                 />
               </div>
-              <div className="lg:w-fit-content p-4">
-                <h1 className="text-2xl font-bold mb-4">{currentCar?.name}</h1>
-                <p>{currentCar?.description}</p>
-                <table className="table-auto">
-                  <thead>
-                    <tr>
-                      <th className="border px-4 py-2 font-bold">
-                        Engine Type ID
-                      </th>
-                      <th className="border px-4 py-2 font-bold">
-                        Horsepower
-                      </th>
-                      <th className="border px-4 py-2 font-bold">
-                        Torque
-                      </th>
-                      <th className="border px-4 py-2 font-bold">
-                        Fuel Economy
-                      </th>
-                      <th className="border px-4 py-2 font-bold">
-                        Seating Capacity
-                      </th>
-                      <th className="border px-4 py-2 font-bold">
-                        Cargo Space
-                      </th>
-                      <th className="border px-4 py-2 font-bold">
-                        Infotainment System
-                      </th>
-                      <th className="border px-4 py-2 font-bold">
-                        Safety Rating
-                      </th>
-                      <th className="border px-4 py-2 font-bold">
-                        Tech Features
-                      </th>
-                      <th className="border px-4 py-2 font-bold">
-                        Special Features
-                      </th>
-                    </tr>
-                  </thead>
+              <div className="lg:w-2/5 p-10 pb-0 text-right">
+                <h2 className="text-3xl font-bold mb-4 text-right">{currentCar?.name}</h2>
+                <p className="text-right">{currentCar?.description}</p>
+                <table className="table-auto inline-block align-top text-sm">
                   <tbody>
-                    <tr>
-                      <td className="border px-4 py-2 text-left">1</td>
-                      <td className="border px-4 py-2 text-left">203</td>
-                      <td className="border px-4 py-2 text-left">184</td>
-                      <td className="border px-4 py-2 text-left">32 mpg</td>
-                      <td className="border px-4 py-2 text-left">5</td>
-                      <td className="border px-4 py-2 text-left">15.1 cu ft</td>
-                      <td className="border px-4 py-2 text-left">
-                        7-inch touchscreen, Apple CarPlay/Android Auto
-                      </td>
-                      <td className="border px-4 py-2 text-left">
-                        5-star NHTSA
-                      </td>
-                      <td className="border px-4 py-2 text-left">
-                        Bluetooth, Backup Camera, Adaptive Cruise Control
-                      </td>
-                      <td className="border px-4 py-2 text-left">
-                        LED Headlights, Available panoramic sunroof
-                      </td>
-                    </tr>
+                    {filteredDetails.map(([key, value], index) => (
+                      <tr key={key} className={index % 2 === 0 ? 'bg-gray-200' : 'bg-white'}>
+                        <td className="border-none px-4 py-2 font-bold text-left">{key}</td>
+                        <td className="border-none px-4 py-2 text-right">{value}</td>
+                      </tr>
+                    ))}
+                    {showMoreDetails && extraDetailsArray.map(([key, value], index) => (
+                      <tr key={key} className={index % 2 === 0 ? 'bg-gray-200' : 'bg-white'}>
+                        <td className="border-none px-4 py-2 font-bold text-left">{key}</td>
+                        <td className="border-none px-4 py-2 text-right">{value}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
+                <div className="flex w-full p-3 mx-4 px-14 text-lg">
+                  <p className="font-bold">{currentCar?.car_detail.horsepower}</p>
+                  <p>&nbsp;Horse power</p>
+                </div>
+                <div className="w-full p-3 mx-4">
+                  <button
+                    type="button"
+                    className="cursor-pointer text-sm font-bold hover:underline"
+                    onClick={() => handleShowMoreDetails()}
+                  >
+                    {showMoreDetails ? 'CLOSE DETAILS △' : 'DISCOVER MORE DETAILS ▷'}
+                  </button>
+                </div>
+                <div className="flex justify-end">
+                  <img src={circle} alt="color-circle" className="w-28" />
+                </div>
               </div>
+            </div>
+            <div className="flex justify-between">
+              <Link to="/" className="flex justify-between">
+                <img src={triangle} className="bg-light-green w-16 transform -rotate-90 rounded-b-xl" alt="Home" />
+              </Link>
+              <Link to={`/reservations/new?carId=${currentCar?.id}`} className="bg-light-green flex rounded-full text-white p-3 text-lg justify-between ">
+                <img src={reserve} alt="reserve" />
+                &nbsp;Reserve&nbsp;
+                <img src={reserveArrow} alt="reserve-arrow" />
+              </Link>
             </div>
           </>
         );
