@@ -14,11 +14,12 @@ export const createCarOnServer = createAsyncThunk(
     try {
       const response = await axios.post(`${BASE_URL}/cars`, options.data, {
         headers: {
-          // 'Content-Type': 'multipart/form-data',
+          'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${options.token}`,
         },
       });
 
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -119,7 +120,7 @@ const appDataSlice = createSlice({
         error: null,
         appData: {
           ...state.appData,
-          cars: [...state.appData.cars, action.payload],
+          cars: [...state.appData.cars, action.payload.data],
         },
       }))
       .addCase(createCarOnServer.rejected, (state, action) => ({
