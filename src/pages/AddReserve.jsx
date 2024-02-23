@@ -80,8 +80,8 @@ const Reserve = () => {
             <option key={city.id} value={city.id}>{city.name}</option>
           ))}
         </select>
-        <input className="bg-light-green p-2 my-1 md:my-unset lg:my-unset sm:p-3 lg:p-4 w-full md:w-auto lg:w-auto rounded-full border-2 border-white focus:outline-none" type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} />
-        <button className="bg-white p-2 my-1 md:my-unset lg:my-unset sm:p-3 lg:p-4 w-full md:w-auto lg:w-auto rounded-full border border-white text-light-green" type="submit">Book now</button>
+        <input className="bg-light-green p-2 my-1 md:my-unset lg:my-unset sm:p-3 lg:p-3 w-full md:w-auto lg:w-auto rounded-full border-2 border-white focus:outline-none" type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} />
+        <button className="bg-white p-3 sm:p-2 my-1 md:my-unset lg:my-unset lg:p-3 w-full md:w-auto lg:w-auto rounded-full border border-white text-light-green" type="submit">Book now</button>
       </form>
       {successMessage && <p>{successMessage}</p>}
     </div>

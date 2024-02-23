@@ -10,7 +10,7 @@ const SideNavBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="h-max">
+    <div className="flex justify-between">
       <div className="lg:hidden">
         <button
           type="button"
@@ -128,6 +128,16 @@ const SideNavBar = () => {
           </div>
         </aside>
       </div>
+      {isSidebarOpen && (
+        <div
+          className="fixed top-0 right-0 z-40 w-1/3 h-full bg-gray-400 opacity-50 lg:hidden"
+          role="button"
+          tabIndex="0"
+          aria-label="Close Sidebar"
+          onClick={() => setIsSidebarOpen(false)}
+          onKeyDown={(e) => e.key === 'Escape' && setIsSidebarOpen(false)}
+        />
+      )}
     </div>
   );
 };
