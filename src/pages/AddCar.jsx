@@ -1,81 +1,132 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
-import { fetchAppData } from 'app/redux/AppDataSlice';
+import { createCarOnServer } from 'app/redux/AppDataSlice';
 
 export default function AddCar() {
-  const engineTypes = useSelector((store) => store.appData.appData.engine_type);
+  const engineTypes = useSelector(
+    (store) => store.appData.appData.engine_types,
+  );
+  const token = useSelector((store) => store.auth.token);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchAppData);
-  }, [dispatch]);
-  const [formData, setFormData] = useState({
-    name: '',
-    description: '',
-    image_url: '',
-    engine_type_id: engineTypes[0].id,
-    horsepower: '',
-    torque: '',
-    fuel_economy: '',
-    range: '',
-    seating_capacity: '',
-    cargo_space: '',
-    infotainment_system: '',
-    safety_rating: '',
-    tech_features: '',
-    special_features: '',
+
+  const [carData, setCarData] = useState({
+    car: {
+      name: null,
+      description: null,
+      car_image: null,
+      car_detail_attributes: {
+        engine_type_id: null,
+        horsepower: null,
+        torque: null,
+        fuel_economy: null,
+        range: null,
+        seating_capacity: null,
+        cargo_space: null,
+        infotainment_system: null,
+        safety_rating: null,
+        tech_features: null,
+        special_features: null,
+      },
+    },
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleChange = (event) => {
+    const { name, value, files } = event.target;
+
+    setCarData((prevData) => {
+      if (name in prevData.car) {
+        if (name === 'car_image' && files) {
+          return {
+            ...prevData,
+            car: {
+              ...prevData.car,
+              car_image: files[0],
+            },
+          };
+        }
+        return {
+          ...prevData,
+          car: {
+            ...prevData.car,
+            [name]: value,
+          },
+        };
+      }
+      if (name in prevData.car.car_detail_attributes) {
+        const intValue = ['horsepower', 'torque', 'seating_capacity'].includes(
+          name,
+        )
+          ? parseInt(value, 10)
+          : value;
+
+        return {
+          ...prevData,
+          car: {
+            ...prevData.car,
+            car_detail_attributes: {
+              ...prevData.car.car_detail_attributes,
+              [name]: intValue,
+            },
+          },
+        };
+      }
+      return prevData;
+    });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const formDataWithImage = new FormData();
-      formDataWithImage.append('name', formData.name);
-      formDataWithImage.append('description', formData.description);
-      formDataWithImage.append('image', formData.image);
-      formDataWithImage.append(
-        'car_detail[engine_type_id]',
-        formData.engine_type_id,
-      );
-      formDataWithImage.append('car_detail[horsepower]', formData.horsepower);
-      formDataWithImage.append('car_detail[torque]', formData.torque);
-      formDataWithImage.append(
-        'car_detail[fuel_economy]',
-        formData.fuel_economy,
-      );
-      formDataWithImage.append(
-        'car_detail[seating_capacity]',
-        formData.seating_capacity,
-      );
-      formDataWithImage.append('car_detail[cargo_space]', formData.cargo_space);
-      formDataWithImage.append(
-        'car_detail[infotainment_system]',
-        formData.infotainment_system,
-      );
-      formDataWithImage.append(
-        'car_detail[safety_rating]',
-        formData.safety_rating,
-      );
-      formDataWithImage.append(
-        'car_detail[tech_features]',
-        formData.tech_features,
-      );
-      formDataWithImage.append(
-        'car_detail[special_features]',
-        formData.special_features,
-      );
+    const data = new FormData();
+    data.append('car[name]', carData.car.name);
+    data.append('car[description]', carData.car.description);
+    data.append('car[car_image]', carData.car.car_image);
+    data.append(
+      'car[car_detail_attributes][engine_type_id]',
+      carData.car.car_detail_attributes.engine_type_id,
+    );
+    data.append(
+      'car[car_detail_attributes][horsepower]',
+      carData.car.car_detail_attributes.horsepower,
+    );
+    data.append(
+      'car[car_detail_attributes][torque]',
+      carData.car.car_detail_attributes.torque,
+    );
+    data.append(
+      'car[car_detail_attributes][fuel_economy]',
+      carData.car.car_detail_attributes.fuel_economy,
+    );
+    data.append(
+      'car[car_detail_attributes][range]',
+      carData.car.car_detail_attributes.range,
+    );
+    data.append(
+      'car[car_detail_attributes][seating_capacity]',
+      carData.car.car_detail_attributes.seating_capacity,
+    );
+    data.append(
+      'car[car_detail_attributes][cargo_space]',
+      carData.car.car_detail_attributes.cargo_space,
+    );
+    data.append(
+      'car[car_detail_attributes][infotainment_system]',
+      carData.car.car_detail_attributes.infotainment_system,
+    );
+    data.append(
+      'car[car_detail_attributes][safety_rating]',
+      carData.car.car_detail_attributes.safety_rating,
+    );
+    data.append(
+      'car[car_detail_attributes][tech_features]',
+      carData.car.car_detail_attributes.tech_features,
+    );
+    data.append(
+      'car[car_detail_attributes][special_features]',
+      carData.car.car_detail_attributes.special_features,
+    );
 
-      await axios.post('http://localhost:4000/api/v1/cars', formDataWithImage);
-      // Optionally, you can redirect the user to another page or show a success message
-    } catch (error) {
-      console.error('Error creating car:', error);
-      // Handle error, e.g., show an error message to the user
-    }
+    const options = { data, token };
+    dispatch(createCarOnServer(options));
   };
 
   return (
@@ -87,44 +138,41 @@ export default function AddCar() {
           type="text"
           name="name"
           onChange={handleChange}
-          value={formData.name}
+          value={carData.car.name || ''}
           placeholder="Name"
           className="form-control mb-2"
         />
         <textarea
           required
           name="description"
-          value={formData.description}
+          value={carData.car.description || ''}
           onChange={handleChange}
           placeholder="Descripton"
           className="form-control mb-2"
           rows={5}
         />
-        {/* image Url */}
         <input
           required
-          type="text"
-          name="image_url"
+          type="file"
+          name="car_image"
           onChange={handleChange}
-          value={formData.image_url}
-          placeholder="Image Url"
+          placeholder="Upload Car image"
           className="form-control mb-2"
         />
         <br />
-        <label htmlFor="selectCar" className="w-100 mb-2">
+        <label htmlFor="selectEngineType" className="w-100 mb-2">
           Engine type
           <br />
           <select
-            required
             name="engine_type_id"
-            id="selectCar"
-            className="form-select my-2"
-            value={formData.engine_type_id}
+            value={
+              carData.car.car_detail_attributes.engine_type_id || undefined
+            }
             onChange={handleChange}
           >
-            {engineTypes.map((engine) => (
-              <option value={engine.id} key={engine.id}>
-                {engine.name}
+            {engineTypes.map((type) => (
+              <option key={type.id} value={type.id}>
+                {type.name}
               </option>
             ))}
           </select>
@@ -135,7 +183,7 @@ export default function AddCar() {
           min="1"
           name="horsepower"
           onChange={handleChange}
-          value={formData.horsepower}
+          value={carData.car.car_detail_attributes.horsepower || 0}
           placeholder="Horsepower"
           className="form-control mb-2"
         />
@@ -145,7 +193,7 @@ export default function AddCar() {
           min="1"
           name="torque"
           onChange={handleChange}
-          value={formData.torque}
+          value={carData.car.car_detail_attributes.torque || 0}
           placeholder="Torque"
           className="form-control mb-2"
         />
@@ -156,7 +204,7 @@ export default function AddCar() {
           min="1"
           name="range"
           onChange={handleChange}
-          value={formData.range}
+          value={carData.car.car_detail_attributes.range || 0}
           placeholder="Range"
           className="form-control mb-2"
         />
@@ -165,7 +213,7 @@ export default function AddCar() {
           type="text"
           name="fuel_economy"
           onChange={handleChange}
-          value={formData.fuel_economy}
+          value={carData.car.car_detail_attributes.fuel_economy || ''}
           placeholder="Fuel Economy"
           className="form-control mb-2"
         />
@@ -175,7 +223,7 @@ export default function AddCar() {
           min="1"
           name="seating_capacity"
           onChange={handleChange}
-          value={formData.seating_capacity}
+          value={carData.car.car_detail_attributes.seating_capacity || 0}
           placeholder="Seating Capacity"
           className="form-control mb-2"
         />
@@ -184,7 +232,7 @@ export default function AddCar() {
           type="text"
           name="cargo_space"
           onChange={handleChange}
-          value={formData.cargo_space}
+          value={carData.car.car_detail_attributes.cargo_space || ''}
           placeholder="Cargo Space"
           className="form-control mb-2"
         />
@@ -193,7 +241,7 @@ export default function AddCar() {
           type="text"
           name="infotainment_system"
           onChange={handleChange}
-          value={formData.infotainment_system}
+          value={carData.car.car_detail_attributes.infotainment_system || ''}
           placeholder="Infotainment System"
           className="form-control mb-2"
         />
@@ -202,7 +250,7 @@ export default function AddCar() {
           type="text"
           name="safety_rating"
           onChange={handleChange}
-          value={formData.safety_rating}
+          value={carData.car.car_detail_attributes.safety_rating || ''}
           placeholder="Safety Rating"
           className="form-control mb-2"
         />
@@ -211,7 +259,7 @@ export default function AddCar() {
           type="text"
           name="tech_features"
           onChange={handleChange}
-          value={formData.tech_features}
+          value={carData.car.car_detail_attributes.tech_features || ''}
           placeholder="Tech Features"
           className="form-control mb-2"
         />
@@ -220,7 +268,7 @@ export default function AddCar() {
           type="text"
           name="special_features"
           onChange={handleChange}
-          value={formData.special_features}
+          value={carData.car.car_detail_attributes.special_features || ''}
           placeholder="Special Features"
           className="form-control mb-2"
         />

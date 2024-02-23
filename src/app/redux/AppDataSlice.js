@@ -8,6 +8,24 @@ export const fetchAppData = createAsyncThunk('cars/fetchAppData', async () => {
   return response.data;
 });
 
+export const createCarOnServer = createAsyncThunk(
+  'cars/createCar',
+  async (options, thunkAPI) => {
+    try {
+      const response = await axios.post(`${BASE_URL}/cars`, options.data, {
+        headers: {
+          // 'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${options.token}`,
+        },
+      });
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
 export const deleteCarFromDatabase = createAsyncThunk(
   'cars/deleteCar',
   async (options, thunkAPI) => {
@@ -38,14 +56,15 @@ const appDataSlice = createSlice({
   name: 'cars',
   initialState,
   reducers: {
-    deleteCar: (state, action) => ({
+    deleteCar: (state) => ({
       ...state,
-      loading: false,
-      error: false,
-      appData: {
-        ...state.appData,
-        cars: state.appData.cars.filter((car) => car.id !== action.payload),
-      },
+      loading: true,
+      error: null,
+    }),
+    createCar: (state) => ({
+      ...state,
+      loading: true,
+      error: null,
     }),
   },
   extraReducers: (builder) => {
@@ -63,7 +82,7 @@ const appDataSlice = createSlice({
           ...state.appData,
           cars: action.payload.data.cars,
           cities: action.payload.data.cities,
-          engine_type: action.payload.data.engine_types,
+          engine_types: action.payload.data.engine_types,
         },
       }))
       .addCase(fetchAppData.rejected, (state, action) => ({
@@ -88,6 +107,25 @@ const appDataSlice = createSlice({
           ...state.appData,
           cars: state.appData.cars.filter((car) => car.id !== action.payload),
         },
+      }))
+      .addCase(createCarOnServer.pending, (state) => ({
+        ...state,
+        loading: true,
+        error: null,
+      }))
+      .addCase(createCarOnServer.fulfilled, (state, action) => ({
+        ...state,
+        loading: false,
+        error: null,
+        appData: {
+          ...state.appData,
+          cars: [...state.appData.cars, action.payload],
+        },
+      }))
+      .addCase(createCarOnServer.rejected, (state, action) => ({
+        ...state,
+        loading: false,
+        error: action.payload,
       }));
   },
 });
