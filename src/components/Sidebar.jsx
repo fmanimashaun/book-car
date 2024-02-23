@@ -47,6 +47,7 @@ const SideNavBar = () => {
                   to="/"
                   className={({ isActive }) => (isActive ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg' : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                  end
                 >
                   CARS
                 </NavLink>
@@ -56,13 +57,14 @@ const SideNavBar = () => {
                   to="/reservations"
                   className={({ isActive }) => (isActive ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg' : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                  end
                 >
                   MY RESERVATION
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  exact="true"
+                  exact
                   to="/reservations/new"
                   className={({ isActive }) => (isActive ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg' : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
