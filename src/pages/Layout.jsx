@@ -56,7 +56,7 @@ const Layout = () => {
           )}
         </button>
       </div>
-      <div className={`lg:block lg:relative lg:w-64 lg:flex-none bg-white z-40 ${isSidebarOpen ? 'absolute' : 'hidden'}`}>
+      <div className={`lg:block lg:relative w-2/3 md:w-65 lg:w-64 lg:flex-none bg-white z-40 ${isSidebarOpen ? 'absolute' : 'hidden'}`}>
         {' '}
         {/* Show on medium and larger screens if isSidebarOpen is true */}
         <Sidebar />
