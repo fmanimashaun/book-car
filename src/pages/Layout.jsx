@@ -34,25 +34,34 @@ const Layout = () => {
 
   return (
     <>
-      <div className="md:hidden">
+      <div className="lg:hidden">
         {' '}
-        {/* Show only on small screens */}
+        {/* Show only on small and medium screens */}
         <button
           type="button"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           className="fixed top-0 left-0 z-50 p-4 focus:outline-none"
         >
-          {isSidebarOpen ? 'Close' : 'Open'}
-          <br />
-          Menu
+          {isSidebarOpen ? (
+            <>
+              <div className="absolute m-1 bg-black h-[2px] w-5 transform transition-all duration-300 rotate-45 delay-100" />
+              <div className="absolute m-1 bg-black h-[2px] w-5 transform transition-all duration-300 -rotate-45 delay-100" />
+            </>
+          ) : (
+            <>
+              <div className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6" />
+              <div className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6" />
+              <div className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6" />
+            </>
+          )}
         </button>
       </div>
-      <div className={`md:block ${isSidebarOpen ? 'block' : 'hidden'}`}>
+      <div className={`lg:block lg:relative lg:w-64 lg:flex-none bg-white z-40 ${isSidebarOpen ? 'absolute' : 'hidden'}`}>
         {' '}
         {/* Show on medium and larger screens if isSidebarOpen is true */}
         <Sidebar />
       </div>
-      <main className="flex-1 text-black p-4 overflow-auto">{renderContent()}</main>
+      <main className="flex-1 text-black overflow-auto">{renderContent()}</main>
     </>
   );
 };

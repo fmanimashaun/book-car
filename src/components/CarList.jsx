@@ -30,7 +30,7 @@ function CarList({ cars }) {
   };
 
   return (
-    <div className="my-5 py-5">
+    <div>
       {/* Pagination buttons */}
       <div className="flex justify-center w-full">
         {[...Array(totalCars)].map((_, index) => (
