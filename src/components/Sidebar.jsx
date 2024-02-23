@@ -8,7 +8,7 @@ const SideNavBar = () => {
   const { isLoggedIn, role } = useSelector((state) => state.auth);
 
   return (
-    <aside className="flex flex-col items-center w-60 border-r-2" aria-label="Sidebar">
+    <aside className="flex flex-col pt-10 lg:p-auto items-center w-100 lg:w-60 h-screen lg:h-auto border-r-2" aria-label="Sidebar">
       <div className="pb-12 pt-4 flex flex-col items-center">
         <img src={Logo} alt="logo" className="w-40" />
         <h1 className="text-light-green font-bold text-5xl text-center">
