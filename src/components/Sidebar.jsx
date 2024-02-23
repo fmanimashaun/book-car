@@ -10,7 +10,7 @@ const SideNavBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="h-full">
+    <div className="h-max">
       <div className="lg:hidden">
         <button
           type="button"
@@ -31,8 +31,8 @@ const SideNavBar = () => {
           )}
         </button>
       </div>
-      <div className={`lg:block lg:relative w-2/3 md:w-65 lg:w-64 lg:flex-none bg-white z-40 ${isSidebarOpen ? 'absolute' : 'hidden'}`}>
-        <aside className="flex flex-col pt-10 lg:p-auto items-center w-100 lg:w-60 h-screen border-r-2" aria-label="Sidebar">
+      <div className={`lg:block lg:relative w-2/3 md:w-65 lg:w-64 lg:flex-none bg-white z-40 h-max ${isSidebarOpen ? 'absolute' : 'hidden'}`}>
+        <aside className="flex flex-col lg:p-auto items-center w-100 lg:w-60 h-max border-r-2" aria-label="Sidebar">
           <div className="pb-12 pt-4 flex flex-col items-center">
             <img src={Logo} alt="logo" className="w-40" />
             <h1 className="text-light-green font-bold text-5xl text-center">
@@ -64,7 +64,6 @@ const SideNavBar = () => {
               </li>
               <li>
                 <NavLink
-                  exact
                   to="/reservations/new"
                   className={({ isActive }) => (isActive ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg' : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
