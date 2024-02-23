@@ -1,11 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api/v1`;
+
 // Async thunk for fetching car details
 export const fetchCarDetails = createAsyncThunk(
   'carDetails/fetchCarDetails',
   async (id) => {
-    const response = await axios.get(`http://localhost:4000/api/v1/cars/${id}`);
+    const response = await axios.get(`${BASE_URL}/cars/${id}`);
     return response.data;
   },
 );

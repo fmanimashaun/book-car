@@ -52,7 +52,7 @@ function CarList({ cars }) {
           type="button"
           onClick={handlePrev}
           disabled={currentIndex === 0}
-          className={`mr-4 px-2 py-1 rounded-md ${
+          className={`mr-4 px-2 py-1 rounded-r-md ${
             currentIndex === 0 ? 'bg-light-gray text-gray-500' : 'bg-light-green text-white'
           }`}
         >

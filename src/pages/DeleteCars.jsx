@@ -16,20 +16,20 @@ const DeleteCars = () => {
   };
 
   return (
-    <table className="table">
+    <table className="table-auto mx-auto">
       <thead>
         <tr>
-          <th>Number</th>
-          <th>Car Name</th>
-          <th>Operation</th>
+          <th className="px-4">Number</th>
+          <th className="px-4">Car Name</th>
+          <th className="px-4">Operation</th>
         </tr>
       </thead>
       <tbody>
-        {cars.map((car) => (
+        {cars.map((car, index) => (
           <tr key={car.id}>
-            <td>{car.id}</td>
-            <td>{car.name}</td>
-            <td>
+            <td className="px-4">{index + 1}</td>
+            <td className="px-4">{car.name}</td>
+            <td className="px-4">
               <button
                 className="btn btn-danger text-success"
                 type="button"
