@@ -5,7 +5,9 @@ import { logout } from 'app/redux/auth/authSlice';
 
 const SideNavBar = () => {
   const dispatch = useDispatch();
-  const { isLoggedIn, role } = useSelector((state) => state.auth);
+  const { isLoggedIn, user } = useSelector((state) => state.auth);
+
+  const { role } = user;
 
   return (
     <aside className="flex flex-col items-center w-60 border-r-2" aria-label="Sidebar">

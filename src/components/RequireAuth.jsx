@@ -4,16 +4,16 @@ import { useSelector } from 'react-redux';
 import { checkExpiry } from 'helpers/decodeJwt';
 
 const RequireAuth = ({ allowedRoles }) => {
-  const { isLoggedIn, role, token } = useSelector((state) => state.auth);
+  const { isLoggedIn, user } = useSelector((state) => state.auth);
   const location = useLocation();
-  const isExpired = checkExpiry(token);
+  const isExpired = checkExpiry(user.token);
 
   if (isExpired) return <Navigate to="/login" state={{ from: location }} replace />;
 
   if (!isLoggedIn) {
     return <Navigate to="/login" />;
   }
-  if (!allowedRoles.includes(role)) {
+  if (!allowedRoles.includes(user.role)) {
     return <Navigate to="/unathorised" replace />;
   }
   return <Outlet />;
