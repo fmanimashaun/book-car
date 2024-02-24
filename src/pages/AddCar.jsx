@@ -14,7 +14,7 @@ export default function AddCar() {
   const engineTypes = useSelector(
     (store) => store.appData.appData.engine_types,
   );
-  const token = useSelector((store) => store.auth.token);
+  const { token } = useSelector((store) => store.auth.user);
   const dispatch = useDispatch();
 
   const handleChange = (setFieldValue, event) => {
