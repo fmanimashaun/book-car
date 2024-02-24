@@ -12,11 +12,13 @@ import {
 } from 'redux-persist';
 import AppDataSlice from './redux/AppDataSlice';
 import carDetailsSlice from './redux/carDetailsSlice';
+import reservationsSlice from './redux/reservationsSlice';
 import { authReducer } from './redux/auth/authSlice';
 
 const rootReducer = combineReducers({
   appData: AppDataSlice,
   carDetails: carDetailsSlice,
+  reservations: reservationsSlice,
   auth: authReducer,
 });
 
