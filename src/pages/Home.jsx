@@ -6,7 +6,7 @@ const Home = () => {
 
   return (
     <div className="text-center">
-      <div className="py-5 mx-5">
+      <div className="py-2 mx-5">
         <h2 className="text-3xl font-bold">LATEST MODELS</h2>
         <h3>Please select a car model</h3>
       </div>
