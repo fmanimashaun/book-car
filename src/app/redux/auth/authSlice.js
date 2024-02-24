@@ -7,7 +7,12 @@ const request = axios.create({
 });
 
 const initialState = {
-  user: '',
+  user: {
+    id: '',
+    email: '',
+    username: '',
+    role: '',
+  },
   isLoggedIn: false,
   isLoading: false,
   message: '',
@@ -88,7 +93,7 @@ const authSlice = createSlice({
       .addCase(login.pending, (state) => ({ ...state, isLoading: true, message: '' }))
       .addCase(login.fulfilled, (state, { payload }) => ({
         isLoggedIn: true,
-        user: payload,
+        user: { ...payload },
         isLoading: false,
       }))
       .addCase(login.rejected,
@@ -96,7 +101,7 @@ const authSlice = createSlice({
       .addCase(register.pending, (state) => ({ ...state, isLoading: true, message: '' }))
       .addCase(register.fulfilled, (state, { payload }) => ({
         isLoggedIn: true,
-        user: payload,
+        user: { ...payload },
         isLoading: false,
       }))
       .addCase(register.rejected,
