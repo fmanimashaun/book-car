@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/book-car/static/css/main.ab17afe0.css",
-    "main.js": "/book-car/static/js/main.20ca5504.js",
+    "main.css": "/book-car/static/css/main.cbdfc24b.css",
+    "main.js": "/book-car/static/js/main.682d76ad.js",
+    "static/media/car-collage.jpg": "/book-car/static/media/car-collage.a95159019b5b79a287de.jpg",
     "static/media/transparent-logo.png": "/book-car/static/media/transparent-logo.459dd8142dba4186db7e.png",
     "static/media/triangle.png": "/book-car/static/media/triangle.9e471804b777d67a3158.png",
+    "static/media/color-circle.png": "/book-car/static/media/color-circle.54a077e22873bc4dd4fa.png",
     "index.html": "/book-car/index.html",
-    "main.ab17afe0.css.map": "/book-car/static/css/main.ab17afe0.css.map",
-    "main.20ca5504.js.map": "/book-car/static/js/main.20ca5504.js.map"
+    "main.cbdfc24b.css.map": "/book-car/static/css/main.cbdfc24b.css.map",
+    "main.682d76ad.js.map": "/book-car/static/js/main.682d76ad.js.map"
   },
   "entrypoints": [
-    "static/css/main.ab17afe0.css",
-    "static/js/main.20ca5504.js"
+    "static/css/main.cbdfc24b.css",
+    "static/js/main.682d76ad.js"
   ]
 }
