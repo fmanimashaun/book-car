@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const DeleteCars = () => {
   const cars = [...useSelector((store) => store.appData.appData.cars)];
-  const token = useSelector((store) => store.auth.token);
+  const token = useSelector((store) => store.auth.user.token);
   const dispatch = useDispatch();
   if (cars.length) {
     cars.sort((a, b) => a.id - b.id);
