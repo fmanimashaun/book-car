@@ -17,7 +17,7 @@ const SideNavBar = () => {
         <button
           type="button"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="fixed top-0 left-0 z-50 p-4 focus:outline-none"
+          className="fixed top-0 left-0 z-50 p-3 focus:outline-none"
         >
           {isSidebarOpen ? (
             <>
