@@ -23,7 +23,13 @@ const MyReservation = () => {
     content = <div>Loading...</div>;
   } else if (status === 'succeeded') {
     content = reservations?.length > 0 ? (
-      <ReservationList reservations={sortedReservations} />
+      <div className="container mx-auto ">
+        <h2 className="text-3xl sm:text-4xl font-bold">Reservations</h2>
+        <p className="text-gray-600 text-lg sm:text-xl">
+          View your upcoming reservations
+        </p>
+        <ReservationList reservations={sortedReservations} />
+      </div>
     ) : (
       <div>No reservations.</div>
     );
