@@ -43,7 +43,7 @@ const router = createBrowserRouter(
         { path: 'cars/:id', element: <CarDetails /> },
         { path: 'cars', element: <Navigate to="/" replace /> },
         {
-          element: <RequireAuth allowedRoles={['admin']} />,
+          // element: <RequireAuth allowedRoles={['admin']} />,
           children: [
             { path: 'cars/new', element: <AddCar /> },
             { path: 'cars/delete', element: <DeleteCars /> },

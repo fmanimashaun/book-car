@@ -6,7 +6,9 @@ import { logout } from 'app/redux/auth/authSlice';
 
 const SideNavBar = () => {
   const dispatch = useDispatch();
-  const { isLoggedIn, role } = useSelector((state) => state.auth);
+  const { isLoggedIn, user } = useSelector((state) => state.auth);
+
+  const { role } = user;
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
@@ -15,7 +17,7 @@ const SideNavBar = () => {
         <button
           type="button"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="fixed top-0 left-0 z-50 p-4 focus:outline-none"
+          className="fixed top-0 left-0 z-50 p-3 focus:outline-none"
         >
           {isSidebarOpen ? (
             <>

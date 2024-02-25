@@ -7,8 +7,12 @@ const request = axios.create({
 });
 
 const initialState = {
-  token: '',
-  role: '',
+  user: {
+    id: '',
+    email: '',
+    username: '',
+    role: '',
+  },
   isLoggedIn: false,
   isLoading: false,
   message: '',
@@ -23,8 +27,10 @@ export const login = createAsyncThunk(
         user: payload,
       });
 
+      const user = resp.data.data;
       const token = resp.headers.authorization.split(' ')[1];
-      return { token, role: resp.data.data.role };
+      user.token = token;
+      return user;
     } catch (error) {
       if (error.response) {
         if (error.response.status === 401) {
@@ -47,8 +53,10 @@ export const register = createAsyncThunk(
         user: payload,
       });
 
+      const user = resp.data.data;
       const token = resp.headers.authorization.split(' ')[1];
-      return { token, role: resp.data.data.role };
+      user.token = token;
+      return user;
     } catch (error) {
       if (error.response) {
         if (error.response.status === 422) {
@@ -71,9 +79,8 @@ const authSlice = createSlice({
 
       if (isExpired) {
         return {
-          token: '',
+          user: '',
           isLoggedIn: false,
-          role: '',
         };
       }
 
@@ -86,18 +93,16 @@ const authSlice = createSlice({
       .addCase(login.pending, (state) => ({ ...state, isLoading: true, message: '' }))
       .addCase(login.fulfilled, (state, { payload }) => ({
         isLoggedIn: true,
-        token: payload.token,
+        user: { ...payload },
         isLoading: false,
-        role: payload.role,
       }))
       .addCase(login.rejected,
         (state, action) => ({ ...state, isLoading: false, message: action.payload }))
       .addCase(register.pending, (state) => ({ ...state, isLoading: true, message: '' }))
       .addCase(register.fulfilled, (state, { payload }) => ({
         isLoggedIn: true,
-        token: payload.token,
+        user: { ...payload },
         isLoading: false,
-        role: payload.role,
       }))
       .addCase(register.rejected,
         (state, action) => ({ ...state, isLoading: false, message: action.payload }));
