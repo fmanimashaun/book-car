@@ -5,7 +5,6 @@ import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarDetails } from 'app/redux/carDetailsSlice';
 import triangle from '../assets/imgs/triangle.png';
-import circle from '../assets/imgs/color-circle.png';
 import reserve from '../assets/imgs/reserve.png';
 import reserveArrow from '../assets/imgs/reserve-arrow.png';
 
@@ -93,9 +92,6 @@ const CarDetails = () => {
                   >
                     {showMoreDetails ? 'CLOSE DETAILS △' : 'DISCOVER MORE DETAILS ▷'}
                   </button>
-                </div>
-                <div className="flex justify-end">
-                  <img src={circle} alt="color-circle" className="w-28" />
                 </div>
               </div>
             </div>

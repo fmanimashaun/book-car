@@ -6,14 +6,11 @@ const BASE_URL = `${process.env.REACT_APP_BASE_URL}/api/v1`;
 // Async thunk for fetching list of reservations
 export const fetchReservations = createAsyncThunk(
   'reservations/fetchReservations',
-  async (options, thunkAPI) => {
+  async (token, thunkAPI) => {
     try {
-      const body = {
-        reservation: { ...options.data },
-      };
-      const response = await axios.get(`${BASE_URL}/reservations`, body, {
+      const response = await axios.get(`${BASE_URL}/reservations`, {
         headers: {
-          Authorization: `Bearer ${options.token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
 
@@ -29,7 +26,10 @@ export const addReservation = createAsyncThunk(
   'reservations/addReservation',
   async (options, thunkAPI) => {
     try {
-      const response = await axios.post(`${BASE_URL}/reservations`, options.data, {
+      const body = {
+        reservation: { ...options.data },
+      };
+      const response = await axios.post(`${BASE_URL}/reservations`, body, {
         headers: {
           Authorization: `Bearer ${options.token}`,
         },
@@ -44,7 +44,7 @@ export const addReservation = createAsyncThunk(
 
 // Initial state
 const initialState = {
-  reservarions: [],
+  reservations: [],
   status: 'idle',
   error: null,
   message: '',
@@ -52,7 +52,7 @@ const initialState = {
 
 // Slice
 const reservationsSlice = createSlice({
-  name: 'reservarions',
+  name: 'reservations',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -64,7 +64,7 @@ const reservationsSlice = createSlice({
       .addCase(fetchReservations.fulfilled, (state, action) => ({
         ...state,
         status: 'succeeded',
-        reservarions: action.payload.data,
+        reservations: action.payload.data,
         message: action.payload.status.message,
       }))
       .addCase(fetchReservations.rejected, (state, action) => ({
@@ -79,7 +79,7 @@ const reservationsSlice = createSlice({
       .addCase(addReservation.fulfilled, (state, action) => ({
         ...state,
         status: 'succeeded',
-        reservarions: [...state.reservarions, action.payload.data],
+        reservations: [...state.reservations, action.payload.data],
       }))
       .addCase(addReservation.rejected, (state, action) => ({
         ...state,

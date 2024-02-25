@@ -32,7 +32,7 @@ function CarList({ cars }) {
   return (
     <div>
       {/* Pagination buttons */}
-      <div className="flex justify-center w-full">
+      <div className="flex space-x-2 justify-center w-full">
         {[...Array(totalCars)].map((_, index) => (
           <button
             key={uuidv4()}

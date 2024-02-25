@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ReservationList = ({ reservations }) => (
-  <div className="overflow-x-auto max-w-[500px]">
+  <div className="overflow-x-auto max-w-[500px] mx-auto">
     <table className="w-full table-auto border-collapse border border-black">
       <thead>
         <tr>
