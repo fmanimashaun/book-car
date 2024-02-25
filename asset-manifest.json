@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/book-car/static/css/main.abbd53da.css",
-    "main.js": "/book-car/static/js/main.92e10267.js",
+    "main.js": "/book-car/static/js/main.b5994676.js",
     "static/media/car-collage.jpg": "/book-car/static/media/car-collage.a95159019b5b79a287de.jpg",
     "static/media/transparent-logo.png": "/book-car/static/media/transparent-logo.459dd8142dba4186db7e.png",
     "static/media/triangle.png": "/book-car/static/media/triangle.9e471804b777d67a3158.png",
     "index.html": "/book-car/index.html",
     "main.abbd53da.css.map": "/book-car/static/css/main.abbd53da.css.map",
-    "main.92e10267.js.map": "/book-car/static/js/main.92e10267.js.map"
+    "main.b5994676.js.map": "/book-car/static/js/main.b5994676.js.map"
   },
   "entrypoints": [
     "static/css/main.abbd53da.css",
-    "static/js/main.92e10267.js"
+    "static/js/main.b5994676.js"
   ]
 }
