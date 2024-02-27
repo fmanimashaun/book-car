@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { createCarOnServer } from 'app/redux/AppDataSlice';
 import { Form, Formik } from 'formik';
 import FormError from 'components/FormError';
@@ -16,6 +17,7 @@ export default function AddCar() {
   );
   const { token } = useSelector((store) => store.auth.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (setFieldValue, event) => {
     const { name, value, files } = event.target;
@@ -135,6 +137,7 @@ export default function AddCar() {
     dispatch(createCarOnServer(options));
 
     resetForm();
+    navigate('/cars');
   };
 
   return (
@@ -224,7 +227,7 @@ export default function AddCar() {
                       values.car_detail_attributes.engine_type_id || undefined
                     }
                     onChange={(e) => handleChange(setFieldValue, e)}
-                    className="w-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
                     <option defaultValue>Select Engine Type</option>
                     {engineTypes.map((type) => (
