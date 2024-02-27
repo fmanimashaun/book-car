@@ -7,7 +7,14 @@ const MyReservation = () => {
   const { token } = useSelector((store) => store.auth.user);
   const { reservations, status } = useSelector((state) => state.reservations);
 
-  const sortedReservations = [...reservations]?.sort((a, b) => new Date(b.date) - new Date(a.date));
+  // set today's date
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // filter out past reservations and sort by date
+  const sortedReservations = [...reservations]
+    ?.filter((reservation) => new Date(reservation.date) >= today)
+    ?.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const dispatch = useDispatch();
 
