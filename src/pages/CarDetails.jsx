@@ -52,54 +52,56 @@ const CarDetails = () => {
         }
         return (
           <>
-            <div className="flex justify-between">
-              <div className="flex-grow pt-10 mt-10 max-h-96">
-                <img
-                  className="w-full h-auto p-4 max-w-xl justify-self-center mx-auto"
-                  src={currentCar?.image_url}
-                  alt={currentCar?.name}
-                />
-              </div>
-              <div className="lg:w-1/3 p-10 pb-0 text-right">
-                <h2 className="text-3xl font-bold mb-4 text-right">{currentCar?.name}</h2>
-                <p className="text-right">{currentCar?.description}</p>
-                <table className="table-auto inline-block align-top text-sm">
-                  <tbody>
-                    {filteredDetails.map(([key, value], index) => (
-                      <tr key={key} className={index % 2 === 0 ? 'bg-gray-200' : 'bg-white'}>
-                        <td className="border-none px-4 py-2 font-bold text-left">{key}</td>
-                        <td className="border-none px-4 py-2 text-right">{value}</td>
-                      </tr>
-                    ))}
-                    {showMoreDetails && extraDetailsArray.map(([key, value], index) => (
-                      <tr key={key} className={index % 2 === 0 ? 'bg-gray-200' : 'bg-white'}>
-                        <td className="border-none px-4 py-2 font-bold text-left">{key}</td>
-                        <td className="border-none px-4 py-2 text-right">{value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <div className="flex w-full p-3 mx-4 px-14 text-lg justify-center">
-                  <p className="font-bold">{currentCar?.car_detail.horsepower}</p>
-                  <p>&nbsp;Horse power</p>
+            <div className="flex-col">
+              <div className="lg:flex justify-between">
+                <div className="flex-grow max-h-96 pt-20">
+                  <img
+                    className="w-full h-auto p-4 max-w-xl justify-self-center mx-auto"
+                    src={currentCar?.image_url}
+                    alt={currentCar?.name}
+                  />
                 </div>
-                <div className="">
-                  <button
-                    type="button"
-                    className="cursor-pointer text-sm font-bold hover:underline"
-                    onClick={() => handleShowMoreDetails()}
-                  >
-                    {showMoreDetails ? 'CLOSE DETAILS △' : 'DISCOVER MORE DETAILS ▷'}
-                  </button>
+                <div className="lg:w-1/3 p-10 pb-0 lg:text-right text-center">
+                  <h2 className="text-3xl font-bold mb-4 lg:text-right">{currentCar?.name}</h2>
+                  <p className="lg:text-right">{currentCar?.description}</p>
+                  <table className="table-auto inline-block align-top text-sm py-2">
+                    <tbody>
+                      {filteredDetails.map(([key, value], index) => (
+                        <tr key={key} className={index % 2 === 0 ? 'bg-gray-200' : 'bg-white'}>
+                          <td className="border-none px-4 py-2 font-bold text-left">{key}</td>
+                          <td className="border-none px-4 py-2 text-right">{value}</td>
+                        </tr>
+                      ))}
+                      {showMoreDetails && extraDetailsArray.map(([key, value], index) => (
+                        <tr key={key} className={index % 2 === 0 ? 'bg-gray-200' : 'bg-white'}>
+                          <td className="border-none px-4 py-2 font-bold text-left">{key}</td>
+                          <td className="border-none px-4 py-2 text-right">{value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <div className="flex w-full text-lg justify-center lg:text-left lg:justify-start lg:px-6">
+                    <p className="font-bold">{currentCar?.car_detail.horsepower}</p>
+                    <p>&nbsp;Horse power</p>
+                  </div>
+                  <div className="">
+                    <button
+                      type="button"
+                      className="cursor-pointer w-full text-sm font-bold py-2 lg:text-right hover:underline hover:text-light-green"
+                      onClick={() => handleShowMoreDetails()}
+                    >
+                      {showMoreDetails ? 'CLOSE DETAILS △' : 'DISCOVER MORE DETAILS ▷'}
+                    </button>
+                  </div>
+                  <div className="flex w-full justify-center lg:justify-end py-3">
+                    <Link to={`/reservations/new?carId=${currentCar?.id}`} className="bg-light-green flex rounded-full text-white p-3 text-lg justify-between ">
+                      <img src={reserve} alt="reserve" />
+                      &nbsp;Reserve&nbsp;
+                      <img src={reserveArrow} alt="reserve-arrow" />
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="flex w-full justify-end">
-              <Link to={`/reservations/new?carId=${currentCar?.id}`} className="bg-light-green flex rounded-full text-white p-3 mr-10 text-lg justify-between ">
-                <img src={reserve} alt="reserve" />
-                &nbsp;Reserve&nbsp;
-                <img src={reserveArrow} alt="reserve-arrow" />
-              </Link>
             </div>
             <Link to="/" className="flex justify-end items-center w-20 bg-light-green rounded-r-full h-16">
               <p className="text-white font-bold pr-5 text-lg">◁</p>
