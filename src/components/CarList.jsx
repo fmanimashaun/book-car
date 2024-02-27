@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import triangle from '../assets/imgs/triangle.png';
 import facebook from '../assets/imgs/facebook.png';
 import twitter from '../assets/imgs/twitter.png';
 import instagram from '../assets/imgs/instagram.png';
@@ -52,11 +51,11 @@ function CarList({ cars }) {
           type="button"
           onClick={handlePrev}
           disabled={currentIndex === 0}
-          className={`mr-4 px-2 py-1 rounded-r-md ${
+          className={`mr-4 px-2 py-1 rounded-r-full w-44 h-14 ${
             currentIndex === 0 ? 'bg-light-gray text-gray-500' : 'bg-light-green text-white'
           }`}
         >
-          <img src={triangle} alt="Previous" className="w-20 transform -rotate-90" />
+          <p className="text-white font-bold text-lg">◁</p>
         </button>
         {/* Display different number of cars based on screen size */}
         <div className="flex space-x-4">
@@ -119,11 +118,11 @@ function CarList({ cars }) {
           type="button"
           onClick={handleNext}
           disabled={currentIndex === maxIndex}
-          className={`ml-4 px-2 py-1 rounded-md ${
+          className={`ml-4 px-2 py-1 rounded-l-full w-44 h-14 ${
             currentIndex === maxIndex ? 'bg-light-gray text-gray-500' : 'bg-light-green text-white'
           }`}
         >
-          <img src={triangle} alt="Next" className="w-20 transform rotate-90" />
+          <p className="text-white font-bold text-lg">▷</p>
         </button>
       </div>
     </div>

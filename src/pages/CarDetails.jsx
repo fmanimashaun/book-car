@@ -4,8 +4,6 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarDetails } from 'app/redux/carDetailsSlice';
-import triangle from '../assets/imgs/triangle.png';
-import circle from '../assets/imgs/color-circle.png';
 import reserve from '../assets/imgs/reserve.png';
 import reserveArrow from '../assets/imgs/reserve-arrow.png';
 
@@ -39,7 +37,7 @@ const CarDetails = () => {
   };
 
   return (
-    <div>
+    <div className="h-full flex-col justify-between">
       {(() => {
         if (status === 'loading') {
           return <p>Loading...</p>;
@@ -54,7 +52,7 @@ const CarDetails = () => {
         }
         return (
           <>
-            <div className="flex">
+            <div className="flex justify-between">
               <div className="flex-grow pt-10 mt-10 max-h-96">
                 <img
                   className="w-full h-auto p-4 max-w-xl justify-self-center mx-auto"
@@ -62,7 +60,7 @@ const CarDetails = () => {
                   alt={currentCar?.name}
                 />
               </div>
-              <div className="lg:w-2/5 p-10 pb-0 text-right">
+              <div className="lg:w-1/3 p-10 pb-0 text-right">
                 <h2 className="text-3xl font-bold mb-4 text-right">{currentCar?.name}</h2>
                 <p className="text-right">{currentCar?.description}</p>
                 <table className="table-auto inline-block align-top text-sm">
@@ -81,11 +79,11 @@ const CarDetails = () => {
                     ))}
                   </tbody>
                 </table>
-                <div className="flex w-full p-3 mx-4 px-14 text-lg">
+                <div className="flex w-full p-3 mx-4 px-14 text-lg justify-center">
                   <p className="font-bold">{currentCar?.car_detail.horsepower}</p>
                   <p>&nbsp;Horse power</p>
                 </div>
-                <div className="w-full p-3 mx-4">
+                <div className="">
                   <button
                     type="button"
                     className="cursor-pointer text-sm font-bold hover:underline"
@@ -94,21 +92,18 @@ const CarDetails = () => {
                     {showMoreDetails ? 'CLOSE DETAILS △' : 'DISCOVER MORE DETAILS ▷'}
                   </button>
                 </div>
-                <div className="flex justify-end">
-                  <img src={circle} alt="color-circle" className="w-28" />
-                </div>
               </div>
             </div>
-            <div className="flex justify-between">
-              <Link to="/" className="flex justify-between">
-                <img src={triangle} className="bg-light-green w-16 transform -rotate-90 rounded-b-xl" alt="Home" />
-              </Link>
-              <Link to={`/reservations/new?carId=${currentCar?.id}`} className="bg-light-green flex rounded-full text-white p-3 text-lg justify-between ">
+            <div className="flex w-full justify-end">
+              <Link to={`/reservations/new?carId=${currentCar?.id}`} className="bg-light-green flex rounded-full text-white p-3 mr-10 text-lg justify-between ">
                 <img src={reserve} alt="reserve" />
                 &nbsp;Reserve&nbsp;
                 <img src={reserveArrow} alt="reserve-arrow" />
               </Link>
             </div>
+            <Link to="/" className="flex justify-end items-center w-20 bg-light-green rounded-r-full h-16">
+              <p className="text-white font-bold pr-5 text-lg">◁</p>
+            </Link>
           </>
         );
       })()}
