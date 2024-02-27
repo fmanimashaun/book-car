@@ -87,13 +87,15 @@ const CarDetails = () => {
                   <div className="">
                     <button
                       type="button"
-                      className="cursor-pointer w-full text-sm font-bold py-2 lg:text-right hover:underline hover:text-light-green"
+                      className="cursor-pointer w-full text-sm font-bold py-4 lg:text-right hover:underline hover:text-light-green"
                       onClick={() => handleShowMoreDetails()}
                     >
-                      {showMoreDetails ? 'CLOSE DETAILS △' : 'DISCOVER MORE DETAILS ▷'}
+                      <span>{showMoreDetails ? 'CLOSE DETAILS' : 'DISCOVER MORE DETAILS'}</span>
+                      &nbsp;
+                      <span className="text-yellow-400 font-black">{showMoreDetails ? '△' : '▷'}</span>
                     </button>
                   </div>
-                  <div className="flex w-full justify-center lg:justify-end py-3">
+                  <div className="flex w-full justify-center lg:justify-end py-2">
                     <Link to={`/reservations/new?carId=${currentCar?.id}`} className="bg-light-green flex rounded-full text-white p-3 text-lg justify-between ">
                       <img src={reserve} alt="reserve" />
                       &nbsp;Reserve&nbsp;
