@@ -33,6 +33,7 @@ const Layout = () => {
     <>
       <Sidebar />
       <main className="flex-1 text-black overflow-auto h-full px-3 py-5 bg-gray-100">{renderContent()}</main>
+
     </>
   );
 };
