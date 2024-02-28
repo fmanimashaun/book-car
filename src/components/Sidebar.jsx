@@ -35,8 +35,8 @@ const SideNavBar = () => {
           )}
         </button>
       </div>
-      <div className={`lg:block lg:relative w-2/3 md:w-65 lg:w-64 lg:flex-none bg-white z-40 h-full ${isSidebarOpen ? 'absolute' : 'hidden'}`}>
-        <aside className="flex flex-col lg:p-auto items-center w-100 lg:w-60 h-full border-r-2" aria-label="Sidebar">
+      <div className={`lg:block lg:relative w-60 lg:flex-none bg-white z-40 h-full ${isSidebarOpen ? 'absolute' : 'hidden'}`}>
+        <aside className="flex flex-col lg:p-auto items-center w-full h-full border-r-2" aria-label="Sidebar">
           <div className="pb-12 pt-4 flex flex-col items-center">
             <img src={Logo} alt="logo" className="w-40" />
             <h1 className="text-light-green font-bold text-5xl text-center">
