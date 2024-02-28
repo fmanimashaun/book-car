@@ -184,6 +184,9 @@ You may also see any lint errors in the console.
 👤 **Timothy Njoroge**
 - GitHub: [@simplegoose](https://github.com/simplegoose)
 - LinkedIn: [@Timothy Njoroge](https://linkedin.com/in/timothy-njoroge-mwangi)
+  
+👤 **Anwar Hussaini**
+- GitHub: [@M-Anwar-Hussaini](https://github.com/M-Anwar-Hussaini)
 
 👤 **Esteban Palacios**
 
