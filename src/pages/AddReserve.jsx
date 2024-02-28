@@ -31,7 +31,6 @@ const Reserve = () => {
 
     const options = { data, token: user.token };
     const actionResult = await dispatch(addReservation(options));
-    dispatch(addReservation(options));
 
     if (!addReservation.fulfilled.match(actionResult)) {
       setShowError(true);
