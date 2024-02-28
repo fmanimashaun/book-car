@@ -170,11 +170,31 @@ You may also see any lint errors in the console.
 
 ## 👥 Authors <a name="authors"></a>
 
-👤👤 **Fisayo Michael Animashaun**
+👤 **Fisayo Michael Animashaun**
 
 - GitHub: [@fmanimashaun](https://github.com/fmanimashaun)
 - Twitter: [@fmanimashaun](https://twitter.com/fmanimashaun)
 - LinkedIn: [Fisayo Michael Animashaun ](https://linkedin.com/in/fmanimashaun)
+
+👤 **Tomas Matias Esquivel**
+- GitHub: [@tomasesquivelgc](https://github.com/tomasesquivelgc)
+- Twitter: [@EsquivelTomas](https://twitter.com/EsquivelTomas)
+- LinkedIn: [Tomas Esquivel](https://www.linkedin.com/in/tomás-esquivel-b2160568/)
+
+👤 **Timothy Njoroge**
+- GitHub: [@simplegoose](https://github.com/simplegoose)
+- LinkedIn: [@Timothy Njoroge](https://linkedin.com/in/timothy-njoroge-mwangi)
+  
+👤 *Anwar Hussaini*
+
+- GitHub: [Anwar Hussaini](https://github.com/M-Anwar-Hussaini)
+- LinkedIn: [Anwar Hussaini](https://www.linkedin.com/in/anwar-hussaini/)
+
+👤 **Esteban Palacios**
+
+- GitHub: [@Estete9](https://github.com/Estete9)
+- Twitter: [@NaughTban](https://twitter.com/NaughTban)
+- LinkedIn: [Esteban Palacios](https://www.linkedin.com/in/dev-esteban-palacios/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
