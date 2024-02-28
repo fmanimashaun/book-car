@@ -8,6 +8,8 @@ const SideNavBar = () => {
   const dispatch = useDispatch();
   const { isLoggedIn, user } = useSelector((state) => state.auth);
 
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
   const { role } = user;
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -47,7 +49,9 @@ const SideNavBar = () => {
               <li>
                 <NavLink
                   to="/"
-                  className={({ isActive }) => (isActive ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg' : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
+                  className={({ isActive }) => (isActive
+                    ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg'
+                    : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                   end
                 >
@@ -57,7 +61,9 @@ const SideNavBar = () => {
               <li>
                 <NavLink
                   to="/reservations"
-                  className={({ isActive }) => (isActive ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg' : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
+                  className={({ isActive }) => (isActive
+                    ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg'
+                    : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                   end
                 >
@@ -67,7 +73,9 @@ const SideNavBar = () => {
               <li>
                 <NavLink
                   to="/reservations/new"
-                  className={({ isActive }) => (isActive ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg' : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
+                  className={({ isActive }) => (isActive
+                    ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg'
+                    : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                 >
                   RESERVE A CAR
@@ -78,7 +86,9 @@ const SideNavBar = () => {
                   <li>
                     <NavLink
                       to="/cars/new"
-                      className={({ isActive }) => (isActive ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg' : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
+                      className={({ isActive }) => (isActive
+                        ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg'
+                        : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
                       onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                     >
                       ADD CAR
@@ -87,7 +97,9 @@ const SideNavBar = () => {
                   <li>
                     <NavLink
                       to="/cars/delete"
-                      className={({ isActive }) => (isActive ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg' : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
+                      className={({ isActive }) => (isActive
+                        ? 'w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg'
+                        : 'w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg')}
                       onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                     >
                       DELETE CAR
@@ -100,11 +112,19 @@ const SideNavBar = () => {
           <div className="mt-auto">
             {!isLoggedIn ? (
               <p className="text-center pb-4">
-                <Link to="/login" className="font-bold text-lg" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+                <Link
+                  to="/login"
+                  className="font-bold text-lg"
+                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                >
                   LOGIN
                 </Link>
                 <span className="text-lg"> / </span>
-                <Link to="/register" className="font-bold text-lg" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+                <Link
+                  to="/register"
+                  className="font-bold text-lg"
+                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                >
                   REGISTER
                 </Link>
               </p>
@@ -123,7 +143,16 @@ const SideNavBar = () => {
               </p>
             )}
             <div>
-              <p className="text-center"><a href="localhost:4000/api-doc" className="text-dark-blue">API Documentation</a></p>
+              <p className="text-center">
+                <a
+                  href={`${BASE_URL}/api-docs`}
+                  target="_blank"
+                  className="text-dark-blue"
+                  rel="noreferrer"
+                >
+                  API Documentation
+                </a>
+              </p>
               <p className="text-center text-dark-blue">&copy; 2024 BookCar</p>
               <p className="text-center text-dark-blue">All rights reserved</p>
             </div>
@@ -132,7 +161,7 @@ const SideNavBar = () => {
       </div>
       {isSidebarOpen && (
         <div
-          className="fixed top-0 right-0 z-40 w-1/3 h-full bg-gray-400 opacity-50 lg:hidden"
+          className="fixed top-0 left-0 z-30 w-full h-full bg-gray-500 opacity-70 lg:hidden"
           role="button"
           tabIndex="0"
           aria-label="Close Sidebar"

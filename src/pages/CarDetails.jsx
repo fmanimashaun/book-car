@@ -103,6 +103,7 @@ const CarDetails = () => {
                     </Link>
                   </div>
                 </div>
+
               </div>
             </div>
             <Link to="/" className="flex justify-end items-center w-20 bg-light-green rounded-r-full h-16">
