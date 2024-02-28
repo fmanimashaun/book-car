@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarDetails } from 'app/redux/carDetailsSlice';
-import triangle from '../assets/imgs/triangle.png';
 import reserve from '../assets/imgs/reserve.png';
 import reserveArrow from '../assets/imgs/reserve-arrow.png';
 
