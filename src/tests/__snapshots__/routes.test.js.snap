@@ -1,0 +1,1347 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for routes Add car page renders correctly 1`] = `
+Array [
+  <div
+    className="flex justify-between"
+  >
+    <div
+      className="lg:hidden"
+    >
+      <button
+        className="fixed top-0 left-0 z-50 p-3 focus:outline-none"
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+      </button>
+    </div>
+    <div
+      className="lg:block lg:relative w-2/3 md:w-65 lg:w-64 lg:flex-none bg-white z-40 h-full hidden"
+    >
+      <aside
+        aria-label="Sidebar"
+        className="flex flex-col lg:p-auto items-center w-100 lg:w-60 h-full border-r-2"
+      >
+        <div
+          className="pb-12 pt-4 flex flex-col items-center"
+        >
+          <img
+            alt="logo"
+            className="w-40"
+            src="transparent-logo.png"
+          />
+          <h1
+            className="text-light-green font-bold text-5xl text-center"
+          >
+            Book
+            <span
+              className="font-medium"
+            >
+              Car
+            </span>
+          </h1>
+        </div>
+        <nav
+          className="w-full pl-8"
+        >
+          <ul
+            className="flex flex-col space-y-2"
+          >
+            <li>
+              <a
+                aria-current="page"
+                className="w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg"
+                href="/"
+                onClick={[Function]}
+              >
+                CARS
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations"
+                onClick={[Function]}
+              >
+                MY RESERVATION
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations/new"
+                onClick={[Function]}
+              >
+                RESERVE A CAR
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          className="mt-auto"
+        >
+          <p
+            className="text-center pb-4"
+          >
+            <a
+              className="font-bold text-lg"
+              href="/login"
+              onClick={[Function]}
+            >
+              LOGIN
+            </a>
+            <span
+              className="text-lg"
+            >
+               / 
+            </span>
+            <a
+              className="font-bold text-lg"
+              href="/register"
+              onClick={[Function]}
+            >
+              REGISTER
+            </a>
+          </p>
+          <div>
+            <p
+              className="text-center"
+            >
+              <a
+                className="text-dark-blue"
+                href="http://localhost:4000/api-docs"
+                rel="noreferrer"
+                target="_blank"
+              >
+                API Documentation
+              </a>
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              © 2024 BookCar
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              All rights reserved
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>,
+  <main
+    className="flex-1 text-black overflow-auto h-full px-3 py-5 bg-gray-100"
+  >
+    <div>
+      Loading...
+    </div>
+  </main>,
+]
+`;
+
+exports[`Test for routes Add reservation page renders correctly 1`] = `
+Array [
+  <div
+    className="flex justify-between"
+  >
+    <div
+      className="lg:hidden"
+    >
+      <button
+        className="fixed top-0 left-0 z-50 p-3 focus:outline-none"
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+      </button>
+    </div>
+    <div
+      className="lg:block lg:relative w-2/3 md:w-65 lg:w-64 lg:flex-none bg-white z-40 h-full hidden"
+    >
+      <aside
+        aria-label="Sidebar"
+        className="flex flex-col lg:p-auto items-center w-100 lg:w-60 h-full border-r-2"
+      >
+        <div
+          className="pb-12 pt-4 flex flex-col items-center"
+        >
+          <img
+            alt="logo"
+            className="w-40"
+            src="transparent-logo.png"
+          />
+          <h1
+            className="text-light-green font-bold text-5xl text-center"
+          >
+            Book
+            <span
+              className="font-medium"
+            >
+              Car
+            </span>
+          </h1>
+        </div>
+        <nav
+          className="w-full pl-8"
+        >
+          <ul
+            className="flex flex-col space-y-2"
+          >
+            <li>
+              <a
+                aria-current="page"
+                className="w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg"
+                href="/"
+                onClick={[Function]}
+              >
+                CARS
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations"
+                onClick={[Function]}
+              >
+                MY RESERVATION
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations/new"
+                onClick={[Function]}
+              >
+                RESERVE A CAR
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          className="mt-auto"
+        >
+          <p
+            className="text-center pb-4"
+          >
+            <a
+              className="font-bold text-lg"
+              href="/login"
+              onClick={[Function]}
+            >
+              LOGIN
+            </a>
+            <span
+              className="text-lg"
+            >
+               / 
+            </span>
+            <a
+              className="font-bold text-lg"
+              href="/register"
+              onClick={[Function]}
+            >
+              REGISTER
+            </a>
+          </p>
+          <div>
+            <p
+              className="text-center"
+            >
+              <a
+                className="text-dark-blue"
+                href="http://localhost:4000/api-docs"
+                rel="noreferrer"
+                target="_blank"
+              >
+                API Documentation
+              </a>
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              © 2024 BookCar
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              All rights reserved
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>,
+  <main
+    className="flex-1 text-black overflow-auto h-full px-3 py-5 bg-gray-100"
+  >
+    <div>
+      Loading...
+    </div>
+  </main>,
+]
+`;
+
+exports[`Test for routes Car detail page renders correctly 1`] = `
+Array [
+  <div
+    className="flex justify-between"
+  >
+    <div
+      className="lg:hidden"
+    >
+      <button
+        className="fixed top-0 left-0 z-50 p-3 focus:outline-none"
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+      </button>
+    </div>
+    <div
+      className="lg:block lg:relative w-2/3 md:w-65 lg:w-64 lg:flex-none bg-white z-40 h-full hidden"
+    >
+      <aside
+        aria-label="Sidebar"
+        className="flex flex-col lg:p-auto items-center w-100 lg:w-60 h-full border-r-2"
+      >
+        <div
+          className="pb-12 pt-4 flex flex-col items-center"
+        >
+          <img
+            alt="logo"
+            className="w-40"
+            src="transparent-logo.png"
+          />
+          <h1
+            className="text-light-green font-bold text-5xl text-center"
+          >
+            Book
+            <span
+              className="font-medium"
+            >
+              Car
+            </span>
+          </h1>
+        </div>
+        <nav
+          className="w-full pl-8"
+        >
+          <ul
+            className="flex flex-col space-y-2"
+          >
+            <li>
+              <a
+                aria-current="page"
+                className="w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg"
+                href="/"
+                onClick={[Function]}
+              >
+                CARS
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations"
+                onClick={[Function]}
+              >
+                MY RESERVATION
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations/new"
+                onClick={[Function]}
+              >
+                RESERVE A CAR
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          className="mt-auto"
+        >
+          <p
+            className="text-center pb-4"
+          >
+            <a
+              className="font-bold text-lg"
+              href="/login"
+              onClick={[Function]}
+            >
+              LOGIN
+            </a>
+            <span
+              className="text-lg"
+            >
+               / 
+            </span>
+            <a
+              className="font-bold text-lg"
+              href="/register"
+              onClick={[Function]}
+            >
+              REGISTER
+            </a>
+          </p>
+          <div>
+            <p
+              className="text-center"
+            >
+              <a
+                className="text-dark-blue"
+                href="http://localhost:4000/api-docs"
+                rel="noreferrer"
+                target="_blank"
+              >
+                API Documentation
+              </a>
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              © 2024 BookCar
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              All rights reserved
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>,
+  <main
+    className="flex-1 text-black overflow-auto h-full px-3 py-5 bg-gray-100"
+  >
+    <div>
+      Loading...
+    </div>
+  </main>,
+]
+`;
+
+exports[`Test for routes Delete car page renders correctly 1`] = `
+Array [
+  <div
+    className="flex justify-between"
+  >
+    <div
+      className="lg:hidden"
+    >
+      <button
+        className="fixed top-0 left-0 z-50 p-3 focus:outline-none"
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+      </button>
+    </div>
+    <div
+      className="lg:block lg:relative w-2/3 md:w-65 lg:w-64 lg:flex-none bg-white z-40 h-full hidden"
+    >
+      <aside
+        aria-label="Sidebar"
+        className="flex flex-col lg:p-auto items-center w-100 lg:w-60 h-full border-r-2"
+      >
+        <div
+          className="pb-12 pt-4 flex flex-col items-center"
+        >
+          <img
+            alt="logo"
+            className="w-40"
+            src="transparent-logo.png"
+          />
+          <h1
+            className="text-light-green font-bold text-5xl text-center"
+          >
+            Book
+            <span
+              className="font-medium"
+            >
+              Car
+            </span>
+          </h1>
+        </div>
+        <nav
+          className="w-full pl-8"
+        >
+          <ul
+            className="flex flex-col space-y-2"
+          >
+            <li>
+              <a
+                aria-current="page"
+                className="w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg"
+                href="/"
+                onClick={[Function]}
+              >
+                CARS
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations"
+                onClick={[Function]}
+              >
+                MY RESERVATION
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations/new"
+                onClick={[Function]}
+              >
+                RESERVE A CAR
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          className="mt-auto"
+        >
+          <p
+            className="text-center pb-4"
+          >
+            <a
+              className="font-bold text-lg"
+              href="/login"
+              onClick={[Function]}
+            >
+              LOGIN
+            </a>
+            <span
+              className="text-lg"
+            >
+               / 
+            </span>
+            <a
+              className="font-bold text-lg"
+              href="/register"
+              onClick={[Function]}
+            >
+              REGISTER
+            </a>
+          </p>
+          <div>
+            <p
+              className="text-center"
+            >
+              <a
+                className="text-dark-blue"
+                href="http://localhost:4000/api-docs"
+                rel="noreferrer"
+                target="_blank"
+              >
+                API Documentation
+              </a>
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              © 2024 BookCar
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              All rights reserved
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>,
+  <main
+    className="flex-1 text-black overflow-auto h-full px-3 py-5 bg-gray-100"
+  >
+    <div>
+      Loading...
+    </div>
+  </main>,
+]
+`;
+
+exports[`Test for routes Home page renders correctly 1`] = `
+Array [
+  <div
+    className="flex justify-between"
+  >
+    <div
+      className="lg:hidden"
+    >
+      <button
+        className="fixed top-0 left-0 z-50 p-3 focus:outline-none"
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+      </button>
+    </div>
+    <div
+      className="lg:block lg:relative w-2/3 md:w-65 lg:w-64 lg:flex-none bg-white z-40 h-full hidden"
+    >
+      <aside
+        aria-label="Sidebar"
+        className="flex flex-col lg:p-auto items-center w-100 lg:w-60 h-full border-r-2"
+      >
+        <div
+          className="pb-12 pt-4 flex flex-col items-center"
+        >
+          <img
+            alt="logo"
+            className="w-40"
+            src="transparent-logo.png"
+          />
+          <h1
+            className="text-light-green font-bold text-5xl text-center"
+          >
+            Book
+            <span
+              className="font-medium"
+            >
+              Car
+            </span>
+          </h1>
+        </div>
+        <nav
+          className="w-full pl-8"
+        >
+          <ul
+            className="flex flex-col space-y-2"
+          >
+            <li>
+              <a
+                aria-current="page"
+                className="w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg"
+                href="/"
+                onClick={[Function]}
+              >
+                CARS
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations"
+                onClick={[Function]}
+              >
+                MY RESERVATION
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations/new"
+                onClick={[Function]}
+              >
+                RESERVE A CAR
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          className="mt-auto"
+        >
+          <p
+            className="text-center pb-4"
+          >
+            <a
+              className="font-bold text-lg"
+              href="/login"
+              onClick={[Function]}
+            >
+              LOGIN
+            </a>
+            <span
+              className="text-lg"
+            >
+               / 
+            </span>
+            <a
+              className="font-bold text-lg"
+              href="/register"
+              onClick={[Function]}
+            >
+              REGISTER
+            </a>
+          </p>
+          <div>
+            <p
+              className="text-center"
+            >
+              <a
+                className="text-dark-blue"
+                href="http://localhost:4000/api-docs"
+                rel="noreferrer"
+                target="_blank"
+              >
+                API Documentation
+              </a>
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              © 2024 BookCar
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              All rights reserved
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>,
+  <main
+    className="flex-1 text-black overflow-auto h-full px-3 py-5 bg-gray-100"
+  />,
+]
+`;
+
+exports[`Test for routes Login page renders correctly 1`] = `
+Array [
+  <div
+    className="flex justify-between"
+  >
+    <div
+      className="lg:hidden"
+    >
+      <button
+        className="fixed top-0 left-0 z-50 p-3 focus:outline-none"
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+      </button>
+    </div>
+    <div
+      className="lg:block lg:relative w-2/3 md:w-65 lg:w-64 lg:flex-none bg-white z-40 h-full hidden"
+    >
+      <aside
+        aria-label="Sidebar"
+        className="flex flex-col lg:p-auto items-center w-100 lg:w-60 h-full border-r-2"
+      >
+        <div
+          className="pb-12 pt-4 flex flex-col items-center"
+        >
+          <img
+            alt="logo"
+            className="w-40"
+            src="transparent-logo.png"
+          />
+          <h1
+            className="text-light-green font-bold text-5xl text-center"
+          >
+            Book
+            <span
+              className="font-medium"
+            >
+              Car
+            </span>
+          </h1>
+        </div>
+        <nav
+          className="w-full pl-8"
+        >
+          <ul
+            className="flex flex-col space-y-2"
+          >
+            <li>
+              <a
+                aria-current="page"
+                className="w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg"
+                href="/"
+                onClick={[Function]}
+              >
+                CARS
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations"
+                onClick={[Function]}
+              >
+                MY RESERVATION
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations/new"
+                onClick={[Function]}
+              >
+                RESERVE A CAR
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          className="mt-auto"
+        >
+          <p
+            className="text-center pb-4"
+          >
+            <a
+              className="font-bold text-lg"
+              href="/login"
+              onClick={[Function]}
+            >
+              LOGIN
+            </a>
+            <span
+              className="text-lg"
+            >
+               / 
+            </span>
+            <a
+              className="font-bold text-lg"
+              href="/register"
+              onClick={[Function]}
+            >
+              REGISTER
+            </a>
+          </p>
+          <div>
+            <p
+              className="text-center"
+            >
+              <a
+                className="text-dark-blue"
+                href="http://localhost:4000/api-docs"
+                rel="noreferrer"
+                target="_blank"
+              >
+                API Documentation
+              </a>
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              © 2024 BookCar
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              All rights reserved
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>,
+  <main
+    className="flex-1 text-black overflow-auto h-full px-3 py-5 bg-gray-100"
+  >
+    <div>
+      Loading...
+    </div>
+  </main>,
+]
+`;
+
+exports[`Test for routes Missing page renders correctly 1`] = `
+Array [
+  <div
+    className="flex justify-between"
+  >
+    <div
+      className="lg:hidden"
+    >
+      <button
+        className="fixed top-0 left-0 z-50 p-3 focus:outline-none"
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+      </button>
+    </div>
+    <div
+      className="lg:block lg:relative w-2/3 md:w-65 lg:w-64 lg:flex-none bg-white z-40 h-full hidden"
+    >
+      <aside
+        aria-label="Sidebar"
+        className="flex flex-col lg:p-auto items-center w-100 lg:w-60 h-full border-r-2"
+      >
+        <div
+          className="pb-12 pt-4 flex flex-col items-center"
+        >
+          <img
+            alt="logo"
+            className="w-40"
+            src="transparent-logo.png"
+          />
+          <h1
+            className="text-light-green font-bold text-5xl text-center"
+          >
+            Book
+            <span
+              className="font-medium"
+            >
+              Car
+            </span>
+          </h1>
+        </div>
+        <nav
+          className="w-full pl-8"
+        >
+          <ul
+            className="flex flex-col space-y-2"
+          >
+            <li>
+              <a
+                aria-current="page"
+                className="w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg"
+                href="/"
+                onClick={[Function]}
+              >
+                CARS
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations"
+                onClick={[Function]}
+              >
+                MY RESERVATION
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations/new"
+                onClick={[Function]}
+              >
+                RESERVE A CAR
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          className="mt-auto"
+        >
+          <p
+            className="text-center pb-4"
+          >
+            <a
+              className="font-bold text-lg"
+              href="/login"
+              onClick={[Function]}
+            >
+              LOGIN
+            </a>
+            <span
+              className="text-lg"
+            >
+               / 
+            </span>
+            <a
+              className="font-bold text-lg"
+              href="/register"
+              onClick={[Function]}
+            >
+              REGISTER
+            </a>
+          </p>
+          <div>
+            <p
+              className="text-center"
+            >
+              <a
+                className="text-dark-blue"
+                href="http://localhost:4000/api-docs"
+                rel="noreferrer"
+                target="_blank"
+              >
+                API Documentation
+              </a>
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              © 2024 BookCar
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              All rights reserved
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>,
+  <main
+    className="flex-1 text-black overflow-auto h-full px-3 py-5 bg-gray-100"
+  >
+    <div>
+      Loading...
+    </div>
+  </main>,
+]
+`;
+
+exports[`Test for routes My reservations page renders correctly 1`] = `
+Array [
+  <div
+    className="flex justify-between"
+  >
+    <div
+      className="lg:hidden"
+    >
+      <button
+        className="fixed top-0 left-0 z-50 p-3 focus:outline-none"
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+      </button>
+    </div>
+    <div
+      className="lg:block lg:relative w-2/3 md:w-65 lg:w-64 lg:flex-none bg-white z-40 h-full hidden"
+    >
+      <aside
+        aria-label="Sidebar"
+        className="flex flex-col lg:p-auto items-center w-100 lg:w-60 h-full border-r-2"
+      >
+        <div
+          className="pb-12 pt-4 flex flex-col items-center"
+        >
+          <img
+            alt="logo"
+            className="w-40"
+            src="transparent-logo.png"
+          />
+          <h1
+            className="text-light-green font-bold text-5xl text-center"
+          >
+            Book
+            <span
+              className="font-medium"
+            >
+              Car
+            </span>
+          </h1>
+        </div>
+        <nav
+          className="w-full pl-8"
+        >
+          <ul
+            className="flex flex-col space-y-2"
+          >
+            <li>
+              <a
+                aria-current="page"
+                className="w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg"
+                href="/"
+                onClick={[Function]}
+              >
+                CARS
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations"
+                onClick={[Function]}
+              >
+                MY RESERVATION
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations/new"
+                onClick={[Function]}
+              >
+                RESERVE A CAR
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          className="mt-auto"
+        >
+          <p
+            className="text-center pb-4"
+          >
+            <a
+              className="font-bold text-lg"
+              href="/login"
+              onClick={[Function]}
+            >
+              LOGIN
+            </a>
+            <span
+              className="text-lg"
+            >
+               / 
+            </span>
+            <a
+              className="font-bold text-lg"
+              href="/register"
+              onClick={[Function]}
+            >
+              REGISTER
+            </a>
+          </p>
+          <div>
+            <p
+              className="text-center"
+            >
+              <a
+                className="text-dark-blue"
+                href="http://localhost:4000/api-docs"
+                rel="noreferrer"
+                target="_blank"
+              >
+                API Documentation
+              </a>
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              © 2024 BookCar
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              All rights reserved
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>,
+  <main
+    className="flex-1 text-black overflow-auto h-full px-3 py-5 bg-gray-100"
+  >
+    <div>
+      Loading...
+    </div>
+  </main>,
+]
+`;
+
+exports[`Test for routes Register page renders correctly 1`] = `
+Array [
+  <div
+    className="flex justify-between"
+  >
+    <div
+      className="lg:hidden"
+    >
+      <button
+        className="fixed top-0 left-0 z-50 p-3 focus:outline-none"
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+        <div
+          className="bg-black h-[2px] w-7 m-1 transform transition-all duration-300 origin-top-left group-focus:translate-y-6"
+        />
+      </button>
+    </div>
+    <div
+      className="lg:block lg:relative w-2/3 md:w-65 lg:w-64 lg:flex-none bg-white z-40 h-full hidden"
+    >
+      <aside
+        aria-label="Sidebar"
+        className="flex flex-col lg:p-auto items-center w-100 lg:w-60 h-full border-r-2"
+      >
+        <div
+          className="pb-12 pt-4 flex flex-col items-center"
+        >
+          <img
+            alt="logo"
+            className="w-40"
+            src="transparent-logo.png"
+          />
+          <h1
+            className="text-light-green font-bold text-5xl text-center"
+          >
+            Book
+            <span
+              className="font-medium"
+            >
+              Car
+            </span>
+          </h1>
+        </div>
+        <nav
+          className="w-full pl-8"
+        >
+          <ul
+            className="flex flex-col space-y-2"
+          >
+            <li>
+              <a
+                aria-current="page"
+                className="w-full inline-block bg-light-green px-4 py-2 font-bold text-white text-lg"
+                href="/"
+                onClick={[Function]}
+              >
+                CARS
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations"
+                onClick={[Function]}
+              >
+                MY RESERVATION
+              </a>
+            </li>
+            <li>
+              <a
+                className="w-full inline-block px-4 py-2 hover:bg-light-green hover:text-white font-bold text-lg"
+                href="/reservations/new"
+                onClick={[Function]}
+              >
+                RESERVE A CAR
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          className="mt-auto"
+        >
+          <p
+            className="text-center pb-4"
+          >
+            <a
+              className="font-bold text-lg"
+              href="/login"
+              onClick={[Function]}
+            >
+              LOGIN
+            </a>
+            <span
+              className="text-lg"
+            >
+               / 
+            </span>
+            <a
+              className="font-bold text-lg"
+              href="/register"
+              onClick={[Function]}
+            >
+              REGISTER
+            </a>
+          </p>
+          <div>
+            <p
+              className="text-center"
+            >
+              <a
+                className="text-dark-blue"
+                href="http://localhost:4000/api-docs"
+                rel="noreferrer"
+                target="_blank"
+              >
+                API Documentation
+              </a>
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              © 2024 BookCar
+            </p>
+            <p
+              className="text-center text-dark-blue"
+            >
+              All rights reserved
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>,
+  <main
+    className="flex-1 text-black overflow-auto h-full px-3 py-5 bg-gray-100"
+  >
+    <div>
+      Loading...
+    </div>
+  </main>,
+]
+`;
