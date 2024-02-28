@@ -92,6 +92,7 @@ const authSlice = createSlice({
     builder
       .addCase(login.pending, (state) => ({ ...state, isLoading: true, message: '' }))
       .addCase(login.fulfilled, (state, { payload }) => ({
+        ...state,
         isLoggedIn: true,
         user: { ...payload },
         isLoading: false,
@@ -100,6 +101,7 @@ const authSlice = createSlice({
         (state, action) => ({ ...state, isLoading: false, message: action.payload }))
       .addCase(register.pending, (state) => ({ ...state, isLoading: true, message: '' }))
       .addCase(register.fulfilled, (state, { payload }) => ({
+        ...state,
         isLoggedIn: true,
         user: { ...payload },
         isLoading: false,
