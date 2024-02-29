@@ -140,7 +140,6 @@ Install this project's dependencies with:
 To run the project, first, make sure you have these files in the project's root directory
 
 `.env` with this code `REACT_APP_BASE_URL=http://localhost:4000`
-`.env.production` with this code `REACT_APP_BASE_URL=https://book-car-api-2.onrender.com`
 
 Then execute the following command:
 
